@@ -1,0 +1,14 @@
+\documentclass{article}
+
+\usepackage{imakeidx}
+\makeindex[title={Subject Index},columns=1]
+\makeindex[name=a,title={Author Index},columns=2]
+
+\begin{document}
+	\section{Testing Index}
+	In this file we check our system is ready take bibliography or not..
+This is one reference \index{intro} \index{outro}. This is some author index \index[a]{David Raj Micheal}
+
+\printindex
+\printindex[a]
+\end{document}
