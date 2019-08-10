@@ -1,0 +1,22 @@
+\documentclass{article}
+
+\usepackage[backend=biber,sorting=none, style=numeric, defernumbers]{biblatex}
+\addbibresource{example.bib}
+
+\begin{document}
+	\section{Testing Bibliography}
+	In this file we check our system is ready take bibliography or not..
+This is one reference \parencite{davidLatex} and this is another reference \cite{einstein}. And this is another \cite{lamport1994latex}.  \citeauthor{einstein} has proved something in the year \citeyear{einstein} on the title \citetitle{einstein}. This is a book \cite{latexcompanion}
+
+\begin{refsection}
+\section{Another Section}
+
+In this section also we have references like \cite{einstein}
+\printbibliography[title={Current Section References}]
+\end{refsection}
+
+\printbibliography[type=article, title=Article References]
+
+\newrefcontext[labelprefix=B]
+\printbibliography[type=book, title=Book References]
+\end{document}
