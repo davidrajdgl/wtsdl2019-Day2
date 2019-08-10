@@ -1,0 +1,259 @@
+%%%%%%%% M.Sc. Disseratation Template%%%%%%%%%%%
+%%%%%%%% SMIT_LaTeX Workshop August 2019%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt, a4paper]{report}
+\pagestyle{headings} % other package fancyhdr, to get running heads on the top
+\usepackage{amsthm,amssymb,amsmath,mathrsfs}
+\usepackage{bold-extra,epsfig,pst-all}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{lineno}
+
+\usepackage{cite}
+\renewcommand{\bibname}{References}
+% Uncomment the following line for screen version
+% \usepackage[dvips,bookmarks,bookmarksopen=false,colorlinks=true,linkcolor=blue,citecolor=blue]{hyperref} % hyperlinks in pdf doc
+%-------------------------PAGE SETTINGS ------------------------
+\setlength{\textheight}{210mm}%%%Best 210
+\setlength{\textwidth}{140mm}%Best140
+\setlength{\headheight}{14pt}
+\oddsidemargin=2cm
+\evensidemargin=2cm 
+\topmargin 0.15in
+\headheight 15pt
+\parindent .5cm
+\interfootnotelinepenalty=1000
+
+
+%------------------------- Definitions ------------------------------       
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\newtheorem{corollary}{Corollary}[chapter]
+\newtheorem{conjecture}{Conjecture}[chapter]
+\newtheorem{example}{Example}[chapter]
+\newtheorem{problem}{Problem}[chapter]
+\newtheorem{remark}{Remark}[chapter]
+\newtheorem{definition}{Definition}[chapter]
+
+\newtheoremstyle{fordefn}% name
+     {}%  Space above
+     {}%  Space below
+     {\rm}%  Body font
+     {}%  Indent amount (empty = no indent, \parindent = para indent)
+     {\bf}%  Thm head font
+     {.}%  Punctuation after thm head
+     {.5em}%  Space after thm head: " " = normal interword space; \newline = linebreak
+     {\thmname{#1}\thmnumber{ #2}\thmnote{ [#3]}}%   Thm head spec (can be left empty, meaning `normal')
+\theoremstyle{fordefn}
+
+\newenvironment{preface}[1]{
+ \newpage \thispagestyle{empty}
+%   \addcontentsline{toc}{chapter}{#1}
+  \begin{center}\vspace*{1.5cm} {\Large \bfseries #1} \vspace{0.5cm}\end{center}
+}{}
+
+\newcommand{\thesistitle}{\baselineskip=22pt {On Canonical Consistency of 2-path Signed Graphs}}
+\newcommand{\authorname}{\baselineskip=22pt {ANJAN GAUTAM}}
+\newcommand{\tao}{{\Large $\tau$}}
+\newcommand{\taom}{{\Large $\tau_m$}}
+\newcommand{\taos}{{\Large $\tau_3$}}
+\newcommand{\la}{\xleftarrow}
+\newcommand{\thla}{\twoheadleftarrow}
+\newcommand{\ra}{\xrightarrow}
+\newcommand{\girth}[1]{\mathit{g}(#1)}
+\newcommand{\eoe}{{\hfill $\triangle$\\}}
+%%%%%%%%%%%Page Numbering%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagenumbering{roman}
+
+% %------------------------- document ---------------------------------
+\begin{document}
+\linenumbers
+% \pagenumbering{roman}  %-------page number for initial pages----------
+% % \fancypagestyle{plain}{
+% % \fancyhf{}
+% % \fancyfoot[C]{}
+% % \fancyfoot[C]{{\sf{--~\thepage~--}}} 
+% % \renewcommand{\headheight}{0pt}
+% % \renewcommand{\headrulewidth}{0.0pt}
+% % % \renewcommand{\footrulewidth}{0.5pt}
+% % }
+% %--------------------------------------------------------
+\pagestyle{fancy}
+\thispagestyle{empty}
+\lhead{\nouppercase{\rightmark}}
+\renewcommand{\headrulewidth}{0pt}
+\setcounter{page}{2}
+\input{frontmatter}
+\renewcommand{\headrulewidth}{0.5pt}
+\fancyhead[L]{}\pagenumbering{arabic}
+\fancyhead[R]{}
+\fancyhead[L]{\sffamily\rightmark}
+\lhead{\nouppercase{\rightmark}}
+\tableofcontents
+\input{symbols}
+\addcontentsline{toc}{chapter}{List of Symbols}
+\listoffigures 
+\addcontentsline{toc}{chapter}{List of Figures}
+% \newpage
+% %-------------------setting page number--------------------------
+% \pagenumbering{arabic}
+% \pagestyle{fancy}
+\baselineskip=22pt %---------line spacing-----------------------
+% \setcounter{chapter}{0}
+% \setcounter{page}{1} 
+% %---------------Comment------------------------------
+% \newcommand{\comment}[1]{\marginpar{\footnotesize #1}}
+% % \newcommand{\comment}[1]{}
+% \newcommand{\commentbd}[1]{\marginpar{\footnotesize \red #1}}
+% % \newcommand{\commentbd}[1]{}
+% %--------heading customize-------------------
+% \fancyhead[L]{}
+% \fancyhead[R]{}
+% \fancyhead[L]{\sffamily\rightmark}
+% %--------------page style for the first page of a chapter-----------------
+% \fancypagestyle{plain}{
+% \fancyhf{}
+% \fancyfoot[C]{}
+% \fancyfoot[C]{{\sf{--~\thepage~--}}} 
+% \renewcommand{\headheight}{0pt}
+% \renewcommand{\headrulewidth}{0.0pt}
+% % \renewcommand{\footrulewidth}{0.5pt}
+% }
+% %------------to get uniform page number style in every pa\setcounter{page}{3}ge----------
+% \fancyfoot[C]{}
+% \fancyfoot[C]{{\sf{--~\thepage~--}}} 
+% \lhead{\nouppercase{\rightmark}}
+
+%%%%%%%%% Contents of The Thesis %%%%%%%%%%%%%%
+% \input{response}
+\input{chapter1}   % Introduction
+% \pagenumbering{arabic}
+\input{chapter2}   % 
+\input{chapter3}   % Non-negative Matrices
+
+%  \input{rough24}
+%------------------ Bibliography---------------------------
+% \section{References}
+\addcontentsline{toc}{section}{\bf References}
+\bibliographystyle{plain}
+\begin{thebibliography}{10}
+% \bibliography{kshittiz}
+\bibitem{ACH83}
+B.~Devdas Acharya.
+\newblock A characterization of consistent marked graph.
+\newblock {\em National Academy Science Letters.}, 6:431--440, 1983.
+
+\bibitem{ACH84}
+B.~Devdas Acharya.
+\newblock Some further properties of consistent marked graphs.
+\newblock {\em Indian Journal of Pure and Applied Mathematics}, 15(8):837 --
+  842, 1984.
+
+\bibitem{BEI78}
+Lowell~W. Beineke and Frank Harary.
+\newblock Consistency in marked digraphs.
+\newblock {\em Journal of Mathematical Psychology}, 18:260--269, 1978.
+
+\bibitem{BEI1978}
+Lowell~W. Beineke and Frank Harary.
+\newblock Consistent graphs with signed points.
+\newblock {\em Rivista di matematica per le scienze economiche e sociali},
+  1(2):81--88, Sep 1978.
+  
+\bibitem{SIN13}
+Deepa Sinha and Pravin Garg.
+\newblock A characterization of canonically consistent total signed graphs.
+\newblock {\em Notes on Number Theory and Discrete Mathematics.}, 19(3):70 --
+  77, 2013.
+
+\bibitem{BON15}
+Miklos Bona.
+\newblock {\em Handbook of Enumerative Combinatorics.}
+\newblock CRC Press, 2015.
+
+\bibitem{HAR56}
+D.~Cartwright and F.~Harary.
+\newblock Structural balance: a generalization of heider's theory.
+\newblock {\em Psychological Review.}, 63(5):277 -- 293, 1956.
+
+
+\bibitem{HAR53}
+Frank Harary.
+\newblock On the notion of balance of a signed graph.
+\newblock {\em Michigan Math. J.}, 2(2):143--146, 1953.
+
+\bibitem{har69}
+Frank Harary.
+\newblock {\em {Graph Theory}}.
+\newblock Addison-Wesley, Reading, MA, 1969.
+
+\bibitem{KAB80}
+Frank Harary and Jerald~A. Kabell.
+\newblock A simple algorithm to detect balance in signed graphs.
+\newblock {\em Mathematical Social Sciences}, 1(1):131 -- 136, 1980.
+
+\bibitem{HARA81}
+Frank Harary and Jerald~A. Kabell.
+\newblock Counting balanced signed graphs using marked graphs.
+\newblock {\em Proceedings of the Edinburgh Mathematical Society},
+  24(2):99–104, 1981.
+
+\bibitem{HOE92}
+Cornelis Hoede.
+\newblock A characterization of consistent marked graphs.
+\newblock {\em Journal of Graph Theory}, 16(1):17--23, 1992.
+
+\bibitem{DEN50}
+Denes Konig.
+\newblock {\em Theorie der endlichen und unendlichen graphen.}
+\newblock Chelsea Publishing Company, 1950.
+
+\bibitem{RAO84}
+S.B Rao.
+\newblock Characterization of harmonious marked graphs and consistent nets.
+\newblock {\em Journal of combinatorics, information and system sciences.},
+  9:97 -- 112, 1984.
+
+\bibitem{ROB95}
+Fred~S. Roberts.
+\newblock On the problem of consistent marking of a graph.
+\newblock {\em Linear Algebra and its Applications}, 217:255 -- 263, 1995.
+\newblock Proceedings of a Conference on Graphs and Matrices in Honor of John
+  Maybee.
+
+\bibitem{ROB03}
+Fred~S Roberts and Shaoji Xu.
+\newblock Characterizations of consistent marked graphs.
+\newblock {\em Discrete Applied Mathematics}, 127(2):357 -- 371, 2003.
+\newblock Ordinal and Symbolic Data Analysis (OSDA '98), Univ. of
+  Massachusetts, Amherst, Sept. 28-30, 1998.
+
+\bibitem{SIN11}
+Deepa Sinha and Pravin Garg.
+\newblock Balance and consistency of total signed graphs.
+\newblock {\em Indian Journal of Mathematics.}, 53(1):71-- 81, 2011.
+
+\bibitem{SINHA11}
+Deepa Sinha and Pravin Garg.
+\newblock Characterization of total signed graph and semi-total signed graphs.
+\newblock {\em International Journal of Contemporary Mathematical Sciences.},
+  6(5):221-- 228, 2011.
+  
+\bibitem{REDDY09}
+P. S. K Reddy and M S Subramanya.
+\newblock Note on path signed graphs.
+\newblock {\em Notes on Number Theory and Discrete Mathematics.},
+  4(16), 2009.
+  
+\bibitem{SIN17}
+Deepa Sinha and Deepakshi Sharma.
+\newblock Characterization of 2-Path Product Signed Graphs with
+Its Properties.
+\newblock {\em Computational Intelligence and Neuroscience},
+  2017.
+
+
+\end{thebibliography}
+\end{document}
+

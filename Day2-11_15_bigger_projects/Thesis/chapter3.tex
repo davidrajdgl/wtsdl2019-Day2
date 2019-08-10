@@ -1,0 +1,673 @@
+\chapter{2-Path  Signed Graphs}
+\section{2-Path Product  Signed Graphs}
+Let $G=(V,E,\sigma)$ be a signed graph.
+The 2-path product signed graph $G\hat{\#}G= (V, E^\prime,\sigma^\prime )$ is defined as
+follows: The vertex set is same as the original signed graph
+$G$ and two vertices $u,v\in V(G\hat{\#}G)$, are adjacent if and only
+if there exists a $uv$-path of length two in $G$. The sign $\sigma^\prime(uv)=\mu(u)\mu(v)$, $\mu$ is the canonical marking.
+The Figure \ref{fig3.2} is the 2-path product signed graph of the signed graph $K^-_{4,1}$ in the Figure \ref{fig3.1}.
+% \begin{minipage}{200pt}
+\begin{figure}[h!]
+\begin{pspicture}(4,4)
+\rput(4.5,-.75){\scalebox{1}{
+\pscircle[linewidth=.05, linecolor=blue](1,1){.25}
+\pscircle[linewidth=.05, linecolor=blue](1,4){.25}
+\pscircle[linewidth=.05, linecolor=blue](4,1){.25}
+\pscircle[linewidth=.05, linecolor=blue](4,4){.25}
+\pscircle[linewidth=.05, linecolor=blue](2.5,2.5){.25}
+
+\psline[linewidth=.05](1.25,1)(2.25,2.5)
+\psline[linewidth=.05](1.25,4)(2.25,2.5)
+\psline[linewidth=.05](3.75,1)(2.75,2.5)
+\psline[linewidth=.05](3.75,4)(2.75,2.5)
+
+\rput(.95,1){ $4$}
+\rput(.95,4){ $5$}
+\rput(3.95,4){ $2$}
+\rput(3.95,1){ $3$}
+\rput(2.45,2.5){ $1$}
+
+\rput(3.6,3){$-1$}
+\rput(1.4,3){$-1$}
+\rput(1.4,1.75){$-1$}
+\rput(3.6,1.75){$-1$}
+}}
+\end{pspicture}
+\caption{\label{fig3.1} The signed graph $K^-_{4,1}$.}
+\end{figure}
+
+\begin{figure}
+\begin{pspicture}(4,4)
+\rput(4,0){\scalebox{1}{
+\pscircle[linewidth=.05, linecolor=blue](1,1){.25}
+\pscircle[linewidth=.05, linecolor=blue](1,4){.25}
+\pscircle[linewidth=.05, linecolor=blue](4,1){.25}
+\pscircle[linewidth=.05, linecolor=blue](4,4){.25}
+\pscircle[linewidth=.05, linecolor=blue](6.5,2.5){.25}
+
+\psline[linewidth=.05](1.25,1)(3.75,1)
+\psline[linewidth=.05](1.25,4)(3.75,4)
+\psline[linewidth=.05](1,1.25)(1,3.75)
+\psline[linewidth=.05](4,1.25)(4,3.75)
+\psline[linewidth=.05](1.15,1.15)(3.85,3.85)
+\psline[linewidth=.05](1.15,3.85)(3.85,1.15)
+\rput(.95,1){ $4$}
+\rput(.95,4){ $5$}
+\rput(3.95,4){ $2$}
+\rput(3.95,1){ $3$}
+\rput(6.45,2.5){ $1$}
+
+\rput(.75,2.5){$+1$}
+\rput(4.25,2.5){$+1$}
+\rput(2.5,4.25){$+1$}
+\rput(2.5,.75){$+1$}
+\rput(2.25,3.20){$+1$}
+\rput(3.25,2.9){$+1$}
+}}
+\end{pspicture}
+\caption{\label{fig3.2} The  2-path product signed graph of $K^-_{4,1}$.}
+\end{figure}
+The following result  about  2-path product signed graph is cited from \cite{SIN17}.
+\begin{proposition}
+2-path product signed graph of a signed graph
+S is always balanced.
+\end{proposition}
+We noticed the following about canonical consistency of  the 2-path product signed graph of a signed graph.
+\begin{proposition}
+2-path product signed graph of a signed graph
+S is always canonically consistent.
+\end{proposition}
+
+\section{2-Path  Signed Graphs}
+Let $G=(V,E,\sigma)$ be a  signed graph.
+The {\it $n$-path  signed graph} $G{\#}G= (V, E^\prime,\sigma^\prime )$ is defined as
+follows: The vertex set is same as the original signed graph
+$G$ and two vertices $u,v\in V(G{\#}G)$, are adjacent if and only
+if there exists a $uv$-path of length $n$ in $G$. The sign $\sigma^\prime(uv)$ is $-1$ whenever in every $uv$-path of length $n$ 
+in $G$ all edges are negative.
+
+Let $G$ be any signed graph and $G\# G$ be the 2-path signed graph of $G$.
+Define 
+\begin{eqnarray*}
+S&=&\{G~|~G \text{ is balanced and canonically consistent}\}\\
+S_1&=&\{G\in S~|~G\# G \text{ is balanced and canonically consistent}\}\\
+S_2&=&\{G\in S~|~G\# G \text{ is balanced but not canonically consistent}\}\\
+S_3&=&\{G\in S~|~G\# G \text{ is canonically consistent but not balanced}\}\\
+S_4&=&\{G\in S~|~G\# G \text{ is neither canonically consistent nor balanced}\} 
+\end{eqnarray*}
+The following proposition shows that $S_1\neq\Phi$.
+\begin{proposition}
+ For any graph $G$, $G^+\# G^+$ is balanced and canonically consistent.
+\end{proposition}
+\begin{proof}
+ For any graph $G$, $G^+$ denotes the corresponding signed graph with all edges positive and so $G\in S$. So,  all edges in $G^+\# G^+$
+ are positive. Hence the result.
+\end{proof}
+% \begin{proposition}
+%   If $G$ has no adjacent negative edges then $G\in S_1$.
+% \end{proposition}
+% \begin{proof}
+%  Let $G$ be a graph which has no adjacent negative edges. Then $G\#G$ will not have any negative edge because the edge in 
+% $G\#G$ is negative iff all the edges in all two-path in $G$ are negative. Hence, all the edges are positive so $G\#G$  is $B$ and 
+% $CC$. Therefore $G\in S_1$.
+% \end{proof}
+% % 
+% \begin{proposition}
+%  If $G$ have adjacent negative edges${u,v},{v,w}$ where $u,v,w\in V(G)$ but $\exists$ another 2-path between $u$ and $w$ where 
+% both 
+% edges are not negative then $G\in S_1$.
+% \end{proposition}
+% \begin{proof}
+%  Let $G$ be a graph. By the definition of $G\#G$ the edge in $G\#G$ is negative iff all the edges in all two-path in $G$ are 
+% negative. Since there exists another 2-path for which both edges are not negative then $G\sharp G$ will have all edge positive. 
+% So $G\sharp G$ 
+% is $B$ and $CC$. Hence $G\in S_1$.
+% \end{proof}
+\remark $C^-_{2n+1}\not\in S$ but $C^-_{2n}\in S$.
+
+\begin{proposition}
+$C^-_{2n}\in S_1$ if and only if $n$ is even.
+\end{proposition}
+\begin{proof}
+First suppose that $C^-_{2n}\in S_1$. We need to show that $n$ is even. 
+If possible let $n$ be odd. Then $C^-_{2n}\# C^-_{2n}$ will consist of two copies of $C^-_n$. Since $n$ is odd, so the component $C^-_{n}$ 
+will have sign $-1$.
+Hence $C^-_{2n}\# C^-_{2n}$ is not balanced, a contradiction. So, $n$ must be even.
+
+Conversely, suppose that $n$ is even. We consider the following cases:
+
+CASE 1: $n= 2$. 
+
+In this case $C^-_{2n}\# C^-_{2n}$ is acyclic and so it must be balanced and canonically consistent.
+
+% CASE 2:
+% For $n= 2$ we get cycle $C^-_4$
+% Figure(3.1*************)
+% \begin{figure}[h!]
+%  \begin{pspicture}(7,6)
+% \rput(4,0){\scalebox{1}{
+% \pscircle[linewidth=.05, linecolor=blue](1,1){.25}
+% \pscircle[linewidth=.05, linecolor=blue](1,5){.25}
+% \pscircle[linewidth=.05, linecolor=blue](5,1){.25}
+% \pscircle[linewidth=.05, linecolor=blue](5,5){.25}
+% 
+% 
+% \psline[linewidth=.05](1.25,1)(4.75,1)
+% \psline[linewidth=.05](1.25,5)(4.75,5)
+% \psline[linewidth=.05](1,4.75)(1,1.25)
+% \psline[linewidth=.05](5,4.75)(5,1.25)
+% }
+% \rput(.95,1){ $4$}
+% \rput(.95,5){ $1$}
+% \rput(4.95,5){ $2$}
+% \rput(4.95,1){ $3$}
+% }
+% \end{pspicture}
+% \caption{\label{fig2.0} .}
+% \end{figure}
+% 
+% Its 2-path signed graph $C^-_4\sharp C^-_4$ is
+% Figure(3.2) .
+% \begin{figure}[h!]
+%  \begin{pspicture}(7,6)
+% \rput(4,0){\scalebox{1}{
+% \pscircle[linewidth=.05, linecolor=blue](1,1){.25}
+% \pscircle[linewidth=.05, linecolor=blue](1,5){.25}
+% \pscircle[linewidth=.05, linecolor=blue](5,1){.25}
+% \pscircle[linewidth=.05, linecolor=blue](5,5){.25}
+% 
+% 
+% \psline[linewidth=.05](1.2,1.1)(4.9,4.8)
+% \psline[linewidth=.05](1.2,4.9)(4.9,1.2)
+% }
+% \rput(.95,1){ $4$}
+% \rput(.95,5){ $1$}
+% \rput(4.95,5){ $2$}
+% \rput(4.95,1){ $3$}
+% }
+% \end{pspicture}
+% \caption{\label{fig2.0}.}
+% \end{figure}
+% Since there is no cycle so it is $B$ and $CC$. Hence $C^-_4\in S_1$.
+
+
+CASE 2: $n\geq 4$ i.e. $n= 4,6,8,\ldots$
+Here for each $n$, $C^-_{2n}\sharp C^-_{2n}$ consist of two copies of $C^-_n$. Since for even $n$, $C^-_n$ is balanced and canonically consistent,
+so $C^-_{2n}\# C^-_{2n}$ is balanced and canonically consistent. Hence $C^-_{2n}\in S_1$.
+\end{proof}
+\remark For any positive integer $n$, let $\Sigma=(K_{n,1},\sigma)$. Then $\Sigma\# \Sigma$ will consist of two components with 
+underlying graphs
+ as $K_{n}$ and $K_1$. Further, the component $K_1$ will consist of the center of $K_{n,1}$.
+
+\remark For $n=1,2$, if $\Sigma=(K_{n,1},\sigma)$ then $\Sigma\# \Sigma$ will be acyclic and so $\Sigma\in S_1$.
+\begin{proposition}
+  If $\Sigma=(K_{n,1},\sigma)$ and $n\geq 3$, then $\Sigma\in S_1$ if and only if $\Sigma$ has at most one edge with negative sign.
+  \end{proposition}
+  \begin{proof}
+   First suppose that, $\Sigma$ has at most one edge with negative sign. Then each edge of $\Sigma\# \Sigma$ will be positive 
+   and the result follows.
+   
+   Conversely, suppose $\Sigma\in S_1$. If possible let, $\Sigma$ has more than 
+one negative edge.
+   Let $v$ be the center and $u_1,u_2,u_3$ be any three pendent vertices.
+   Then the vertices $u_1,u_2,u_3$ will form a triangle in $\Sigma\# \Sigma$.
+   So, it is enough to consider the following cases:
+   
+   CASE 1: $\Sigma$ has two negative edges. In particular, let the edges $\{v,u_1\}$ and $\{v,u_2\}$ be negative. 
+   In this case, the triangle $u_1u_2u_3u_1$ in $\Sigma\# \Sigma$ will have one negative edge $\{u_1,u_2\}$ and so  
+$\Sigma\# \Sigma$ is not balanced.
+   
+   CASE 2: $\Sigma$ has three negative edges. In particular, let the edges 
+$\{v,u_1\}, \{v,u_2\}$ and $\{v,u_3\}$ be negative.  In this case, the triangle 
+$u_1u_2u_3u_1$ in $\Sigma\# \Sigma$ will have all edges negative 
+ and so  $\Sigma\# \Sigma$ is not balanced.
+
+In both the cases, $\Sigma\# \Sigma$ not balanced, a contradiction. So, 
+$\Sigma$ can have at most one edge with negative sign.   
+  \end{proof}
+
+
+
+% \begin{proof}
+% %  We would prove it by method of Mathematical Induction. Let $G$ be a graph
+% %  
+% % Base step: for $n= 2$
+% % Star graph $G$ will be Fig(3.3).
+% % \begin{figure}[h!]
+% %  \begin{pspicture}(3,3)
+% % \rput(4,0){\scalebox{1}{
+% % \pscircle[linewidth=.05, linecolor=blue](1,1){.25}
+% % \pscircle[linewidth=.05, linecolor=blue](5,1){.25}
+% % 
+% % 
+% % \psline[linewidth=.05](1.25,1)(4.75,1)
+% % }
+% % \rput(4.95,1){ $2$}
+% % \rput(.95,1){ $1$}
+% % }
+% % \end{pspicture}
+% % \caption{\label{fig2.0} A star Graph with two vertices .}
+% % \end{figure}
+% % 2-path signed graph $G\sharp G$ will be Fig(3.4).
+% % 
+% % \begin{figure}[h!]
+% %  \begin{pspicture}(3,3)
+% % \rput(4,0){\scalebox{1}{
+% % \pscircle[linewidth=.05, linecolor=blue](1,1){.25}
+% % \pscircle[linewidth=.05, linecolor=blue](5,1){.25}
+% % }
+% % \rput(4.95,1){ $2$}
+% % \rput(.95,1){ $1$}
+% % }
+% % \end{pspicture}
+% % \caption{\label{fig2.0} 2- path graph of star Graph with two vertices .}
+% % \end{figure}
+% % It is $K_1\cup K_1$.
+% % 
+% % For $n= 3$.Star graph $G$ will be Fig(3.5)
+% % \begin{figure}[h!]
+% %  \begin{pspicture}(3,3)
+% % \rput(4,0){\scalebox{1}{
+% % \pscircle[linewidth=.05, linecolor=blue](1,1){.25}
+% % \pscircle[linewidth=.05, linecolor=blue](5,1){.25}
+% % \pscircle[linewidth=.05, linecolor=blue](3,1){.25}
+% % 
+% % 
+% % \psline[linewidth=.05](1.25,1)(2.75,1)
+% % \psline[linewidth=.05](3.25,1)(4.75,1)
+% % }
+% % \rput(4.95,1){ $3$}
+% % \rput(.95,1){ $2$}
+% % \rput(2.95,1){ $1$}
+% % }
+% % \end{pspicture}
+% % \caption{\label{fig2.0} A star Graph with 3-vertices .}
+% % \end{figure}
+% % 2-path signed graph $G\sharp G$ will be Fig(3.6)
+% % 
+% % \begin{figure}[h!]
+% %  \begin{pspicture}(3,3)
+% % \rput(4,0){\scalebox{1}{
+% % \pscircle[linewidth=.05, linecolor=blue](1,1){.25}
+% % \pscircle[linewidth=.05, linecolor=blue](5,1){.25}
+% % \pscircle[linewidth=.05, linecolor=blue](3,1){.25}
+% % 
+% % 
+% % \psline[linewidth=.05](1.25,1)(2.75,1)
+% % }
+% % \rput(4.95,1){ $1$}
+% % \rput(.95,1){ $2$}
+% % \rput(2.95,1){ $3$}
+% % }
+% % \end{pspicture}
+% % \caption{\label{fig2.0} A 2-path signed graph of star Graph with 3-vertices .}
+% % \end{figure}
+% % 
+% % It is $K_2\cup K_1$.
+% % Hence it is true for $n= 2,3 $.
+% % 
+% % Induction step: Let us consider it is true for $n$ - vertices. That is for $n$-vetices 2-path signed graph is $K_{n-1}\cup K_1$.
+% % Now we will check for $n+1$ vertices. Let us consider a star graph with $n+1$ vertices.
+% % Since 2-path signed graph of star graph with $n$-vertices has $K_{n-1}\cup K_1$so when we add one 
+% % vertex to graph which has edge with $v_1$ center vertex. Since $v_1$ is connected to each of the vertices $v_1,v_2,\ldots,v_n+1$ hence 
+% % $\exists$ a 2-path between all vertices except $v_1$.
+% % Hence 2-path signed graph of $n+1$ vertex star graph will have $n$ complete with $v_1$ isolated i.e. $K_n\cup K_1$.
+% % 
+% % Hence it is true for all $n$.
+% % 
+% % Hence proved.
+% \end{proof}
+
+\remark 2-path signed graph of $C_{2n+1}$ is isomorphic to itself.
+\begin{theorem}
+If there are even number of consecutive negative edges in a cycle other than \{ $C_{2n}^-,~ n$ is even\} and ${C_4}$ then it will 
+belong to $S_3$.
+\end{theorem}
+\begin{proof}
+ Let us consider there is even number of consecutive negative edges in a cycle $C_n$, where $n=3,4,5,\ldots$ \}
+ 
+CASE 1: If $n$ is odd.
+Then 2-path signed graph of $C_n$ is isomorphic to itself.
+For even number of consecutive negative edges $2k$ (say) its 2-path signed graph will have $2k-1$ negative edges, i.e. odd number 
+of negative edges in cycle $C_n$ i.e.$C_n\# C_n$ is not balanced but canonically consistent. 
+Hence, $C_n\in S_3$
+
+CASE 2: If $n$ is even.
+
+For $n=4$ in any case 2-path signed graph of $C_4$ does not contains any cycle hence it is balanced and canonically consistent.
+
+Again we know that a graph $C^-_{2n}\in S_1$ if and only if n is even.
+
+Now for other cycles $C_n$, its 2-path signed graph will consists two copies of $C_{n/2}$ .
+If component $C_{n/2}$ is odd cycle then same as CASE 1 we can say that in either of component $C_{n/2}$ there is odd number of 
+negative edges, i.e. $C_n\# C_n$  is not balanced but canonically consistent.
+Hence, $C_n\in S_3$
+
+If $C_{n/2}$ is even cycle, then it will be less than n. Now with same argument as above either of component $C_{n/2}$ will have 
+odd number of negative edges i.e. $C_n\# C_n$  is not balanced but canonically consistent.
+Hence, $C_n\in S_3$.
+\end{proof}
+
+\begin{proposition}
+$C^-_{2n}\in S_3$ if and only if $n$ is odd.
+\end{proposition}
+\begin{proof}
+First suppose that $C_{2n}^-\in S_3$. We need to show that n is odd. If possible let n be even. Then $C_{2n}^-\# C_{2n}^-$  will 
+consist of two copies of $C_n^-$. Since $n$ is even so the component $C_n^-$ will be balanced, a contradiction. So $n$ must be 
+odd.
+
+Conversely, suppose that $n$ is odd. Then $C_{2n}^-\# C_{2n}^-$  will consist of a pair of disjoint cycles $C_n^-$. Since n is 
+odd $C_n^-$ is not balanced but canonically consistent. So $C_{2n}^-\# C_{2n}^-$   is not balanced but canonically consistent. 
+Hence          $C_{2n}^-\in S_3$. 
+\end{proof}
+
+\remark If $\Sigma=(C_n,\sigma)$, then $n\geq 3$ the underlying graph of $\Sigma\#\Sigma$ will consist of either a cycle or a pair 
+disjoint cycle. So, $\Sigma\#\Sigma$ will be canonically consistent and hence $\Sigma\not\in S_4$.
+
+\begin{figure}[h!]
+\begin{pspicture}(7,6)
+\rput(4,0){\scalebox{1}{
+\pscircle[linewidth=.05](1,1){.25}
+\pscircle[linewidth=.05](1,5){.25}
+\pscircle[linewidth=.05](5,1){.25}
+\pscircle[linewidth=.05](5,5){.25}
+
+\psline[linewidth=.05](1,4.75)(1,1.25)
+\psline[linewidth=.05](1.25,1.25)(4.75,4.75)
+\psline[linewidth=.05](1.25,5)(4.75,5)
+\psline[linewidth=.05](5,4.75)(5,1.25)
+
+}
+\rput(.95,1){ $4$}
+\rput(.95,5){ $1$}
+\rput(4.95,5){ $2$}
+\rput(4.95,1){ $3$}
+\rput(.5,3){ $-1$}
+\rput(3,5.5){ $+1$}
+\rput(3.5,3.3){ $-1$}
+\rput(5.3,3){ $+1$}
+}
+\end{pspicture}
+\caption{\label{fig3.3} The signed graph $\Sigma_1$.}
+\end{figure}
+\rm
+The 2-path signed graph of the signed graph $\Sigma_1$ in the Figure \ref{fig3.3} is shown in the Figure
+\ref{fig3.4} and it is evident that $\Sigma_1\in S_4$. Hence $S_4\neq \Phi$.
+
+\begin{figure}[h!]
+\begin{pspicture}(7,6)
+\rput(4,0){\scalebox{1}{
+\pscircle[linewidth=.05](1,1){.25}
+\pscircle[linewidth=.05](1,5){.25}
+\pscircle[linewidth=.05](5,1){.25}
+\pscircle[linewidth=.05](5,5){.25}
+
+\psline[linewidth=.05](1,4.75)(1,1.25)
+\psline[linewidth=.05](1.15,1.15)(4.85,4.85)
+\psline[linewidth=.05](1.25,5)(4.75,5)
+\psline[linewidth=.05](1.15,4.85)(4.85,1.15)
+\psline[linewidth=.05](1.25,1)(4.75,1)
+
+}
+\rput(.95,1){ $4$}
+\rput(.95,5){ $1$}
+\rput(4.95,5){ $2$}
+\rput(4.95,1){ $3$}
+\rput(.5,3){ $+1$}
+\rput(3,5.5){ $-1$}
+\rput(3.8,3.3){$+1$}
+\rput(2.4,4){$+1$}
+\rput(3,.5){$+1$}
+}
+\end{pspicture}
+\caption{\label{fig3.4} The 2-path signed graph of $\Sigma_1$.}
+\end{figure}
+% \section{Consistent Signed Graphs
+% The  mark $\mu(\Sigma^\prime)$ of  a  nonempty  
+% subgraph  $\Sigma^\prime$
+% of  $\Sigma_\mu$  is then defined as the product of the marks of the vertices  in $\Sigma^\prime$.  A  cycle    
+% $Z$    in  $\Sigma_\mu$ is  said  to  be    consistent  if    $\mu(Z)=+1$;  otherwise,  it  is  said  to  be  
+% inconsistent. 
+% Further, $\Sigma_\mu$   is  said  to  be  consistent if every cycle in it is consistent. Otherwise it is said to be inconsistent.
+% If product of the sign of the vertices in every cycle of a marked graph is positive then the 
+% marked graph is said to be
+% consistent.
+% \begin{figure}[h!]
+% \begin{pspicture}(8,4)
+% \rput(2,0){\scalebox{1}{
+% \pscircle[linewidth=.05, linecolor=blue](1,1){.25}
+% \pscircle[linewidth=.05, linecolor=blue](3,1){.25}
+% \pscircle[linewidth=.05, linecolor=blue](5,1){.25}
+% \pscircle[linewidth=.05, linecolor=blue](7,1){.25}
+% \pscircle[linewidth=.05, linecolor=blue](3,3){.25}
+% 
+% \psline[linewidth=.05](1.3,1)(2.7,1)
+% \psline[linewidth=.05](3.3,1)(4.7,1)
+% \psline[linewidth=.05](5.3,1)(6.7,1)
+% \psline[linewidth=.05](3,1.3)(3,2.7)
+% \psline[linewidth=.05](3.2,2.8)(6.8,1.2)
+% \rput(.95,1){ $1$}
+% \rput(3,1){ $2$}
+% \rput(5,1){ $3$}
+% \rput(7,1){ $4$}
+% \rput(3,3){ $5$}
+% \linenumbers
+% \rput(2,.7){ $+1$}
+% \rput(4,.7){ $-1$}
+% \rput(6,.7){ $-1$}
+% \rput(3.3,2){ $+1$}
+% \rput(4.9,2.3){ $+1$}
+% \rput(.3,1){+1}
+% \rput(3,.5){-1}
+% \rput(5,.5){+1}
+% \rput(7.5,1){-1}
+% \rput(3,3.5){+1}}}
+% \end{pspicture}\linenumbers
+% \caption{\label{fig3.2} }
+% \end{figure}
+% \section{Canonically Consistent Signed Graphs}
+% Every signed graph $\sum=(G,\sigma)$ is associated with a natural 
+% marking $$\mu~:~ V(G)\rightarrow\{-1,1\}$$ define as follows:                                                                  
+%                                       $$\text {for any vertex } v\in V(G),~\mu (v)=\prod\limits_{u\in N(v)}\sigma(uv).$$ 
+%                                       The marking $\mu$ is known as the canonical marking of the signed graph $\sum$. 
+% If the signed graph $\sum=(G,\sigma)$ is consistent with respect to the canonical 
+% marking then it is called a {\it canonically consistent signed graph.} 
+% \begin{figure}[h!]
+% \begin{pspicture}(8,4)
+% \rput(2,0){\scalebox{1}{
+% \pscircle[linewidth=.05, linecolor=blue](1,1){.25}
+% \pscircle[linewidth=.05, linecolor=blue](3,1){.25}
+% \pscircle[linewidth=.05, linecolor=blue](5,1){.25}
+% \pscircle[linewidth=.05, linecolor=blue](7,1){.25}
+% \pscircle[linewidth=.05, linecolor=blue](3,3){.25}
+% 
+% 
+% \psline[linewidth=.05](1.3,1)(2.7,1)
+% \psline[linewidth=.05](3.3,1)(4.7,1)
+% \psline[linewidth=.05](5.3,1)(6.7,1)
+% \psline[linewidth=.05](3,1.3)(3,2.7)
+% \psline[linewidth=.05](3.2,2.8)(6.8,1.2)
+% \rput(.95,1){ $1$}
+% \rput(3,1){ $2$}
+% \rput(5,1){ $3$}
+% \rput(7,1){ $4$}
+% \rput(3,3){ $5$}
+% 
+% \rput(2,.7){ $+1$}
+% \rput(4,.7){ $-1$}
+% \rput(6,.7){ $-1$}
+% \rput(3.3,2){ $+1$}
+% \rput(4.9,2.3){ $+1$}
+% 
+% \rput(.3,1){+1}
+% \rput(3,.5){-1}
+% \rput(5,.5){+1}
+% \rput(7.5,1){-1}
+% \rput(3,3.5){+1}
+% }}
+% \end{pspicture}
+% \caption{\label{fig3.1} }
+% \end{figure}
+% The signed graph in the Figure \ref{fig3.1} represents a 
+% canonically consistent signed graph. But the signed graph in the Figure \ref{fig4.1} is not
+% canonically consistent. In this chapter, we tried to characterize certain classes of signed graphs that are canonically 
+% consistent.
+% \begin{figure}[h!]
+% \begin{pspicture}(8,4)
+% \rput(2,0){\scalebox{1}{
+% \pscircle[linewidth=.05, linecolor=blue](1,1){.25}
+% \pscircle[linewidth=.05, linecolor=blue](3,1){.25}
+% \pscircle[linewidth=.05, linecolor=blue](5,1){.25}
+% \pscircle[linewidth=.05, linecolor=blue](7,1){.25}
+% \pscircle[linewidth=.05, linecolor=blue](3,3){.25}
+% 
+% 
+% \psline[linewidth=.05](1.3,1)(2.7,1)
+% \psline[linewidth=.05](3.3,1)(4.7,1)
+% \psline[linewidth=.05](5.3,1)(6.7,1)
+% \psline[linewidth=.05](3,1.3)(3,2.7)
+% \psline[linewidth=.05](3.2,2.8)(6.8,1.2)
+% \rput(.95,1){ $1$}
+% \rput(3,1){ $2$}
+% \rput(5,1){ $3$}
+% \rput(7,1){ $4$}
+% \rput(3,3){ $5$}
+% 
+% \rput(2,.7){ $+1$}
+% \rput(4,.7){ $-1$}
+% \rput(6,.7){ $-1$}
+% \rput(3.3,2){ $+1$}
+% \rput(4.9,2.3){ $+1$}
+% 
+% \rput(.3,1){+1}
+% \rput(3,.5){-1}
+% \rput(5,.5){+1}
+% \rput(7.5,1){-1}
+% \rput(3,3.5){+1}
+% }}
+% \end{pspicture}
+% \caption{\label{fig4.1} }
+% \end{figure}
+% \begin{proposition}\label{prop1}
+%  Every signed cycle is canonically consistent.
+% \end{proposition}
+% \begin{proof}
+% Let $\Sigma=(C,\sigma)$ be any signed graph, where $C$ is a cycle. We need to prove that $\Sigma$ is canonically consistent. Let 
+% $\Sigma_\mu=(\Sigma, \mu)$ be the canonical marked signed graph of $\Sigma$.
+% If $R(\sigma)=\{+\}$ or $R(\sigma)=\{-\}$, then every vertex of $\Sigma$ will get mark $+$ with respect to canonical marking and 
+% so it must be canonically consistent.
+% 
+% 
+% So, let $\Sigma$ has both positive and negative edges.
+% We apply induction on the number of negative edges to prove this result.
+% Let $\Sigma$ has $n$ negative edges.
+% \linenumbers
+% Base Step: Let $n=1$ and $e=uv$ be the negative edge in $G$. Then according to canonical marking every vertex will get mark $+$ 
+% except the vertices $u,v$ in $\Sigma$. Hence the number of vertices with negative marking in $\Sigma_\mu$ is even and so it 
+% is consistent. Hence $\Sigma$ is canonically consistent.
+% 
+% Induction Step: As an induction hypothesis, assume that the result holds for fewer than $n$ negative edges in 
+% $\Sigma$ and $e=uv$ be any edge in $\Sigma$  with negative sign. Let $\Sigma^\prime$ be the signed graph obtained from $\Sigma$ by 
+% switching the sign of $e$ to $+$. Thus $\Sigma^\prime$ has $n-1$ negative edges and so by induction hypothesis it is canonically 
+% consistent. But mark of the vertices in $\Sigma_\mu$ and $\Sigma^\prime_\mu$ differs only at the vertices $u$ and $v$. So, the 
+% number of negative vertices in $\Sigma_\mu$ is even as it is so in $\Sigma^\prime_\mu$. Hence $\Sigma_\mu$  is consistent and 
+% which in turn implies that $\Sigma$ is canonically consistent.
+% 
+% 
+% % let a cycle has only one negative edge then,by canonically matking there is exactly two negative vertices and hence the cycle is 
+% % canonically consistent.
+% % 
+% % So, let a cycle has exactly two negative edges then, by canonically matking the vertex corresponding to two negative incident 
+% % edge is going to be positive and remaining two vertex will be negative and hence the cycle is canonically consistent.
+% % let us suppose that the result holds for (n-1) negative edges.we prove the result fon n negative edges.
+% % let us ulter a signed of positive edge in a cycle different from (n-1) negative edges.
+% % If it is not incident with none of (n-1) negative edges then the result holds.
+% % if it is incident with exactly one of (n-1) negative edge then,by canonically matking the signed of vertex coresponding to two 
+% % negative incident edge is going to be positive and one vertex will be negative .Hence there is same no of vertices remains 
+% % ,therefore the cycle is canonically consistent by assumption.
+% % if it is incident with two negative edges then we get exactly two positive vertex and hence the cycle is canonically consistent.
+% \end{proof}
+% 
+% \begin{proposition}\label{prop2}
+%  A unicyclic signed graph is canonically consistent if and only if the number of negative 
+% non-cyclic edges incident with the vertices of the cycle is even.
+% \end{proposition}
+% \begin{proof}
+%  Let $\sum=(G,\sigma)$  be a unicyclic signed graph and $C$ be the cycle in  $\sum$.
+%  First assume that  $\sum$ is canonically consistent. We need to prove that the number of negative 
+% non-cyclic edges incident with the vertices of the cycle is even.
+% Let $v_{i_1},v_{i_2},\cdots v_{i_p}$ be the vertices in $C$ on which negative non-cyclic edges are incident.
+% Let $$X_k=\{e : \sigma(e) = -1  \text{ and } e \text{ is non-cyclic edge incident with } v_{i_k}\}$$ for $k=1,2,\cdots p.$
+% Since $G$ is unicyclic, so $X_k$'s are pairwise disjoint and hence the number of negative non-cyclic edges incident with the 
+% vertices of $C$ is $\sum\limits_{k=1}^p|X_k|$. If possible,  let $\sum\limits_{k=1}^p|X_k|$ be odd. Then 
+% $\sum\limits_{k=1}^p|X_k|$ must have odd number of odd summands and this in turn implies that the number of negative vertices in 
+% $C$ is odd, because in absence of all the non-cyclic edges incident with the vertices of $C$, the cycle is $C$ is consistent. 
+% Hence, the graph $\sum=(G,\sigma)$ is inconsistent, a contradiction. Therefore,  $\sum\limits_{k=1}^p|X_k|$ must be even.
+% 
+% Conversely, let the number of negative 
+% non-cyclic edges incident with the vertices of the cycle $C$ is even i.e., $\sum\limits_{k=1}^p|X_k|$ is even. Then, the number 
+% of odd summands in $\sum\limits_{k=1}^p|X_k|$ must be even. Since, negative non-cyclic edges incident with a vertex $v$ of $C$ 
+% will alter the sign of $v$ provided it is odd in number and every cycle is consistent, so the number of vertices with negative 
+% marking in $C$ must be even in $G$. Hence, $C$ is consistent and so $G$ is consistent.
+% 
+% % 
+% % We apply induction on the number of vertices $p$ of $C$ on which negative non-cyclic edges are incident.
+% % 
+% % Base Step: Let $p=0$. That is, no non-cyclic negative edge is incident with the vertices of $C$. In this case, sign of $C$ will 
+% % depend on the signe of the edges involved in $C$ and so by Proposition \ref{prop1}, $C$ is consistent and hence $G$ is 
+% % canonically consistent.
+% 
+% 
+% % 
+% % Let, $X=\{e : \sigma(e) = −1 \text{ or } + 1 \text{ and } e \in E(G)}$
+% %  and $Y=\{e : \sigma(e) = −1 \text{ or } + 1 \text{ and } e \in E(C)}$
+% % Let X − Y = e : e = −1and e is incident with the vertices of C ⊆ X
+% % we claim that X − Y is even.
+% % If mod X −Y is odd then,V = v : v = −1andv ∈ V (C) is odd and which makes the cycle
+% % inconsisitent,which is a contradiction thta every cycle is canonically consistent.Hence,
+% % mod X − Y is even.
+% % Conversely, let mod X − Y is even then V = v : v = −1andv ∈ V (C) is even and hence,
+% % is canonically consistent.
+% 
+% 
+% % \red
+% %  Let $\sum -\sigma=\{e:e=-1\},\sigma:E(C)\longrightarrow\{-1,+1\}$ be the negative non-cyclic edges incident with the vertices 
+% % of 
+% % $C$.
+% % we claim that $\sigma:E(C)\longrightarrow\{-1,+1\}$ is even.
+% % If $\sum -\sigma$ is odd,then  $\sigma:V(C)\longrightarrow\{-1,+1\}$ is odd,which is a contradiction that every cycle is 
+% % canonically consistent.Hence  $\sum -\sigma$ is even.
+% % conversely,
+% % Let $\sum -\sigma$ is even.
+% % Then $\sigma:V(C)\longrightarrow\{-1,+1\}$ is even and hence  $\sum$ is canonically consistent.
+% \end{proof}
+% \begin{theorem}
+%  If all the cycles in a signed graph are disjoint, then the 
+% signed graph is canonically consistent if and only if the number of non-cyclic negative edges incident with the vertices of each 
+% cycles is even.
+% \end{theorem}
+% \begin{proof}
+% The proof of this theorem follows from the Proposition \ref{prop2} by applying induction on the number of cycles in $G$.
+% 
+% 
+% % We prove this result by applying induction on the number of cycles $c$ in $G$.
+% % 
+% % Base step: Let $c=1$. In this case $G$ is unicyclic and so the result is true by the Proposition \ref{prop2}.
+% % 
+% % Induction Step. As an induction hypothesis let us assume that the result is true for any  signed graph with fewer than $c$ cycles.
+% % Let $e=uv$ by a non-cyclic edge appears on a path connecting two cycles $C_1,C_2$ in $G$. Then removal of $e$ will breack $G$ 
+% % into two components, say, $G_1,G_2$.
+% % We consider the following cases:
+% % 
+% % Case 1: $\sigma(e)=+1$. In this case, the number of negative non-cyclic edges incident with each cycle in $G_1$ or $G_2$ will 
+% % remain same as that in $G$. By induction hypothesis, $G_i,~~i=1,2$ is consistent if and only if the number of negative non-cyclic 
+% % edges incident with each cycle is even. Also, $G$ is consistent if and only if $G_1$ and $G_2$ are consistent. Hence, the result 
+% % follows. 
+% 
+%  
+% \end{proof}
+
+\section{Conclusion}
+In this dissertation we have shown that the sets $S_1,S_3,S_4$ are non empty. Further we have identified few classes of graphs 
+that belongs to $S_1$ and $S_3$. But, we have not been able to get an example of a signed graph that belongs to $S_2$. We have a 
+strong belief that $S_2$ is empty. 

@@ -1,0 +1,565 @@
+\chapter{Signed and Marked Graphs}
+\section{Signed Graphs} 
+Frank Harary first introduce the concept of signed graphs and balance signed graphs 
+to treat a question in 
+social psychology\cite{HAR53}. A graph $G(V,E)$ together with a function 
+$\sigma:E\longrightarrow\{-1,1\}$ is known as a {\it signed graph}. The function $\sigma$ is known as the {\it sign function} or 
+{\it signature} of the signed graph.  A singed graph is denoted by $\Sigma=(G,\sigma)$, where $G$ is 
+the underlying graph and $\sigma$ is 
+the sign function.
+To each non-empty  subgraph  $\Sigma^\prime$
+of  $\Sigma$ we assign a sign $\sigma(\Sigma^\prime)$ which  is the product of the signs of the edges  in 
+$\Sigma^\prime$.
+\begin{figure}[h!]
+ \begin{pspicture}(7,6)
+\rput(4,0){\scalebox{1}{
+\pscircle[linewidth=.05, linecolor=blue](1,1){.25}
+\pscircle[linewidth=.05, linecolor=blue](1,3){.25}
+\pscircle[linewidth=.05, linecolor=blue](1,5){.25}
+\pscircle[linewidth=.05, linecolor=blue](5,1){.25}
+\pscircle[linewidth=.05, linecolor=blue](5,3){.25}
+\pscircle[linewidth=.05, linecolor=blue](5,5){.25}
+
+
+\psline[linewidth=.05](1.2,1.1)(4.9,4.8)
+\psline[linewidth=.05](1.2,4.9)(4.9,1.2)
+\psline[linewidth=.05](1.2,3)(4.8,3)
+\pscurve[linewidth=.05](.8,1)(.5,2)(.8,3)
+\pscurve[linewidth=.05](.8,5)(.5,4)(.8,3)
+\pscurve[linewidth=.05](5.2,1)(5.5,2)(5.2,3)
+\pscurve[linewidth=.05](5.2,5)(5.5,4)(5.2,3)
+}
+\rput(.95,1){ $3$}
+\rput(.95,3){ $2$}
+\rput(.95,5){ $1$}
+\rput(4.95,5){ $4$}
+\rput(4.95,3){ $5$}
+\rput(4.95,1){ $6$}
+
+\rput(0,2){ $+1$}
+\rput(0,4){ $-1$}
+\rput(6,2){ $-1$}
+\rput(6,4){ $-1$}
+\rput(3.5,4){ $+1$}
+\rput(4.5,2){ $+1$}
+\rput(2,3.2){ $+1$}
+}
+\end{pspicture}
+\caption{\label{fig2.0} A Signed Graph $\sum=(G,\sigma)$.}
+\end{figure}
+
+% \begin{figure}[h!]
+% \begin{pspicture}(8,4)
+% \rput(2,0){\scalebox{1}{
+% \pscircle[linewidth=.05, linecolor=blue](1,1){.25}
+% \pscircle[linewidth=.05, linecolor=blue](3,1){.25}
+% \pscircle[linewidth=.05, linecolor=blue](5,1){.25}
+% \pscircle[linewidth=.05, linecolor=blue](7,1){.25}
+% \pscircle[linewidth=.05, linecolor=blue](3,3){.25}
+% 
+% 
+% \psline[linewidth=.05](1.3,1)(2.7,1)
+% \psline[linewidth=.05](3.3,1)(4.7,1)
+% \psline[linewidth=.05](5.3,1)(6.7,1)
+% \psline[linewidth=.05](3,1.3)(3,2.7)
+% \psline[linewidth=.05](3.2,2.8)(6.8,1.2)
+% \rput(.95,1){ $1$}
+% \rput(3,1){ $2$}
+% \rput(5,1){ $3$}
+% \rput(7,1){ $4$}
+% \rput(3,3){ $5$}
+% 
+% \rput(2,.7){ $+1$}
+% \rput(4,.7){ $-1$}
+% \rput(6,.7){ $-1$}
+% \rput(3.3,2){ $+1$}
+% \rput(4.9,2.3){ $-1$}
+% }}
+% \end{pspicture}
+% \caption{\label{fig2.1} A Signed Graph $\sum=(G,\sigma)$. }
+% \end{figure}
+\begin{figure}[h!]
+ \begin{pspicture}(7,6)
+\rput(4,0){\scalebox{1}{
+\pscircle[linewidth=.05, linecolor=blue](1,1){.25}
+\pscircle[linewidth=.05, linecolor=blue](1,3){.25}
+\pscircle[linewidth=.05, linecolor=blue](1,5){.25}
+\pscircle[linewidth=.05, linecolor=blue](5,1){.25}
+\pscircle[linewidth=.05, linecolor=blue](5,3){.25}
+\pscircle[linewidth=.05, linecolor=blue](5,5){.25}
+
+
+% \psline[linewidth=.05](1.2,1.1)(4.9,4.8)
+% \psline[linewidth=.05](1.2,4.9)(4.9,1.2)
+\psline[linewidth=.05](1.2,3)(4.8,3)
+\pscurve[linewidth=.05](.8,1)(.5,2)(.8,3)
+\pscurve[linewidth=.05](.8,5)(.5,4)(.8,3)
+\pscurve[linewidth=.05](5.2,1)(5.5,2)(5.2,3)
+\pscurve[linewidth=.05](5.2,5)(5.5,4)(5.2,3)
+}
+\rput(.95,1){ $3$}
+\rput(.95,3){ $2$}
+\rput(.95,5){ $1$}
+\rput(4.95,5){ $4$}
+\rput(4.95,3){ $5$}
+\rput(4.95,1){ $6$}
+
+\rput(0,2){ $+1$}
+\rput(0,4){ $-1$}
+\rput(6,2){ $-1$}
+\rput(6,4){ $-1$}
+% \rput(3.5,4){ $+1$}
+% \rput(4.5,2){ $+1$}
+\rput(2,3.2){ $+1$}
+}
+\end{pspicture}
+\caption{\label{fig2.1} A subgraph $\Sigma^\prime$ of the  Graph $\Sigma=(G,\sigma)$. }
+\end{figure}
+
+
+
+Consider the subgraph $\Sigma^\prime$ in the Figure \ref{fig2.2} of the signed graph $\Sigma=(G,\sigma)$ in the Figure 
+\ref{fig2.1}.
+The sign of $\Sigma^\prime$ is given by $$\sigma(\Sigma^\prime)=(-1)(+1)(+1)(-1)(-1)=-1$$
+
+A graph $G(V,E)$ together with a function 
+$\mu:V\longrightarrow\{-1,1\}$ is known as a {\it marked graph}. The function $\mu$ is known as the {\it marking function} of the 
+marked graph. 
+To each non-empty  subgraph  $\Sigma^\prime_\mu$
+of a marked graph $\Sigma$ we assign a mark $\mu(\Sigma^\prime_\mu)$ which  is the product of the markings of the vertices  in 
+$\Sigma^\prime_\mu$.
+\begin{figure}[h!]
+\begin{pspicture}(8,4)
+\rput(2,0){\scalebox{1}{
+\pscircle[linewidth=.05, linecolor=blue](1,1){.25}
+\pscircle[linewidth=.05, linecolor=blue](3,1){.25}
+\pscircle[linewidth=.05, linecolor=blue](5,1){.25}
+\pscircle[linewidth=.05, linecolor=blue](7,1){.25}
+\pscircle[linewidth=.05, linecolor=blue](3,3){.25}
+
+
+\psline[linewidth=.05](1.3,1)(2.7,1)
+\psline[linewidth=.05](3.3,1)(4.7,1)
+\psline[linewidth=.05](5.3,1)(6.7,1)
+\psline[linewidth=.05](3,1.3)(3,2.7)
+\psline[linewidth=.05](3.2,2.8)(6.8,1.2)
+\rput(.95,1){ $1$}
+\rput(3,1){ $2$}
+\rput(5,1){ $3$}
+\rput(7,1){ $4$}
+\rput(3,3){ $5$}
+
+\rput(1,.5){ $+1$}
+\rput(3,.5){ $-1$}
+\rput(5,.5){ $-1$}
+\rput(7,.5){ $-1$}
+\rput(3,3.5){ $-1$}
+}}
+\end{pspicture}
+\caption{\label{fig2.2} A Marked Graph. }
+\end{figure}
+
+
+ A {\it marked signed graph}  $\Sigma_\mu=(\Sigma,\mu)$ is a marked graph whose underlying graph  
+$\Sigma= (G, \sigma)$  is a signed graph.  
+
+\begin{figure}[h!]
+\begin{pspicture}(8,4)
+\rput(2,0){\scalebox{1}{
+\pscircle[linewidth=.05, linecolor=blue](1,1){.25}
+\pscircle[linewidth=.05, linecolor=blue](3,1){.25}
+\pscircle[linewidth=.05, linecolor=blue](5,1){.25}
+\pscircle[linewidth=.05, linecolor=blue](7,1){.25}
+\pscircle[linewidth=.05, linecolor=blue](3,3){.25}
+
+
+\psline[linewidth=.05](1.3,1)(2.7,1)
+\psline[linewidth=.05](3.3,1)(4.7,1)
+\psline[linewidth=.05](5.3,1)(6.7,1)
+\psline[linewidth=.05](3,1.3)(3,2.7)
+\psline[linewidth=.05](3.2,2.8)(6.8,1.2)
+\rput(.95,1){ $1$}
+\rput(3,1){ $2$}
+\rput(5,1){ $3$}
+\rput(7,1){ $4$}
+\rput(3,3){ $5$}
+
+\rput(1,.5){ $+1$}
+\rput(3,.5){ $-1$}
+\rput(5,.5){ $-1$}
+\rput(7,.5){ $-1$}
+\rput(3,3.5){ $-1$}
+
+\rput(2,.7){ $+1$}
+\rput(4,.7){ $-1$}
+\rput(6,.7){ $-1$}
+\rput(3.3,2){ $+1$}
+\rput(4.9,2.3){ $-1$}
+}}
+\end{pspicture}
+\caption{\label{fig2.3} A Marked Signed Graph. }
+\end{figure}
+\section{Balanced Signed Graphs}
+A signed graph $\Sigma=(G,\sigma)$ is said to be {\it balanced} if each cycle in $G$ has positive sign. The signed graph in the 
+Figure 
+\ref{fig2.4} is balanced but the signed graph in the Figure \ref{fig2.0} is not balanced.
+
+
+\begin{figure}[h!]
+ \begin{pspicture}(7,6)
+\rput(4,0){\scalebox{1}{
+\pscircle[linewidth=.05, linecolor=blue](1,1){.25}
+\pscircle[linewidth=.05, linecolor=blue](1,3){.25}
+\pscircle[linewidth=.05, linecolor=blue](1,5){.25}
+\pscircle[linewidth=.05, linecolor=blue](5,1){.25}
+\pscircle[linewidth=.05, linecolor=blue](5,3){.25}
+\pscircle[linewidth=.05, linecolor=blue](5,5){.25}
+
+
+\psline[linewidth=.05](1.2,1.1)(4.9,4.8)
+\psline[linewidth=.05](1.2,4.9)(4.9,1.2)
+\psline[linewidth=.05](1.2,3)(4.8,3)
+\pscurve[linewidth=.05](.8,1)(.5,2)(.8,3)
+\pscurve[linewidth=.05](.8,5)(.5,4)(.8,3)
+\pscurve[linewidth=.05](5.2,1)(5.5,2)(5.2,3)
+\pscurve[linewidth=.05](5.2,5)(5.5,4)(5.2,3)
+}
+\rput(.95,1){ $3$}
+\rput(.95,3){ $2$}
+\rput(.95,5){ $1$}
+\rput(4.95,5){ $4$}
+\rput(4.95,3){ $5$}
+\rput(4.95,1){ $6$}
+
+\rput(0,2){ $-1$}
+\rput(0,4){ $-1$}
+\rput(6,2){ $-1$}
+\rput(6,4){ $-1$}
+\rput(3.5,4){ $+1$}
+\rput(4.5,2){ $+1$}
+\rput(2,3.2){ $+1$}
+}
+\end{pspicture}
+\caption{\label{fig2.4} A Balanced Signed Graph.}
+\end{figure}
+
+Two important 
+signatures associated with a graph $G$ are the all-positive one, denoted by $+G= (G,+)$, and the all-
+negative one, denoted by $-G = (G,-)$, where every edge has the same sign. 
+In most ways an unsigned graph $G$ behaves like $+G$, while $-G$ acts rather like a generalization of a bipartite graph. 
+In particular, in $+G$ every cycle is positive. In $-G$ the even cycles are positive while the odd
+ones are negative, so $-G$ is balanced if and only if $G$ bipartite.
+The following fundamental result introduced by Frank Harary in [3] gives a characterization of the balanced signed graphs.
+\begin{theorem}\rm (Harary's Balance Theorem).
+  A signed graph $\Sigma$ is balanced if and only if
+there is a bipartition of its vertex set, $V = X \cup Y$, such that every positive edge is induced
+by $X$ or $Y$ while every negative edge has one endpoint in $X$ and one in $Y$. Also, if and only
+if for any two vertices $v, w,$ every path between them has the same sign.
+\end{theorem}
+
+\section{Consistent Signed Graphs}
+Beineke and Harary\cite{BEI1978} raised the problem of characterizing consistent marked graphs, a marked graph in which mark of 
+every cycle has positive mark.
+The  mark $\mu(\Sigma^\prime)$ of  a  nonempty  
+subgraph  $\Sigma^\prime$
+of  $\Sigma_\mu$  is then defined as the product of the marks of the vertices  in $\Sigma^\prime$.  A  cycle    
+$Z$    in  $\Sigma_\mu$ is  said  to  be    consistent  if    $\mu(Z)=+1$;  otherwise,  it  is  said  to  be  
+inconsistent. 
+Further, $\Sigma_\mu$   is  said  to  be  consistent if every cycle in it is consistent. Otherwise it is said to be inconsistent.
+
+\begin{figure}[h!]
+ \begin{pspicture}(7,6)
+\rput(4,0){\scalebox{1}{
+\pscircle[linewidth=.05, linecolor=blue](1,1){.25}
+\pscircle[linewidth=.05, linecolor=blue](1,3){.25}
+\pscircle[linewidth=.05, linecolor=blue](1,5){.25}
+\pscircle[linewidth=.05, linecolor=blue](5,1){.25}
+\pscircle[linewidth=.05, linecolor=blue](5,3){.25}
+\pscircle[linewidth=.05, linecolor=blue](5,5){.25}
+
+
+\psline[linewidth=.05](1.2,1.1)(4.9,4.8)
+\psline[linewidth=.05](1.2,4.9)(4.9,1.2)
+\psline[linewidth=.05](1.2,3)(4.8,3)
+\pscurve[linewidth=.05](.8,1)(.5,2)(.8,3)
+\pscurve[linewidth=.05](.8,5)(.5,4)(.8,3)
+\pscurve[linewidth=.05](5.2,1)(5.5,2)(5.2,3)
+\pscurve[linewidth=.05](5.2,5)(5.5,4)(5.2,3)
+}
+\rput(.95,1){ $3$}
+\rput(.95,3){ $2$}
+\rput(.95,5){ $1$}
+\rput(4.95,5){ $4$}
+\rput(4.95,3){ $5$}
+\rput(4.95,1){ $6$}
+
+\rput(.2,1){ $-1$}
+\rput(.2,3){ $+1$}
+\rput(.2,5){ $-1$}
+\rput(5.5,1){ $-1$}
+\rput(5.5,3){ $+1$}
+\rput(5.5,5){ $-1$}
+}
+\end{pspicture}
+\caption{\label{fig2.5} A Consistent Marked Graph $\sum=(G,\sigma)$.}
+\end{figure}
+ The following characterization of consistent marked graphs is given by Hoede\cite{HOE92}.
+ \begin{theorem}
+  A marked graph $\sum=(G,\sigma)$ is consistent if and only if, for any span-
+ning tree $T$ of $G$ the following holds:
+\begin{enumerate}[(i)]
+ \item all fundamental cycles are consistent.
+ \item all common paths of pairs of fundamental cycles have end points with the same marking.
+\end{enumerate} 
+ \end{theorem}
+ 
+\begin{figure}[h!]
+\begin{pspicture}(8,4)
+\rput(2,0){\scalebox{1}{
+\pscircle[linewidth=.05, linecolor=blue](1,1){.25}
+\pscircle[linewidth=.05, linecolor=blue](3,1){.25}
+\pscircle[linewidth=.05, linecolor=blue](5,1){.25}
+\pscircle[linewidth=.05, linecolor=blue](7,1){.25}
+\pscircle[linewidth=.05, linecolor=blue](3,3){.25}
+
+\psline[linewidth=.05](1.3,1)(2.7,1)
+\psline[linewidth=.05](3.3,1)(4.7,1)
+\psline[linewidth=.05](5.3,1)(6.7,1)
+\psline[linewidth=.05](3,1.3)(3,2.7)
+\psline[linewidth=.05](3.2,2.8)(6.8,1.2)
+\rput(.95,1){ $1$}
+\rput(3,1){ $2$}
+\rput(5,1){ $3$}
+\rput(7,1){ $4$}
+\rput(3,3){ $5$}
+\linenumbers
+\rput(2,.7){ $+1$}
+\rput(4,.7){ $-1$}
+\rput(6,.7){ $-1$}
+\rput(3.3,2){ $+1$}
+\rput(4.9,2.3){ $+1$}
+\rput(.3,1){+1}
+\rput(3,.5){-1}
+\rput(5,.5){+1}
+\rput(7.5,1){-1}
+\rput(3,3.5){+1}}}
+\end{pspicture}\linenumbers
+\caption{\label{fig2.8} An Inconsistent Marked Graph }
+\end{figure}
+Roberts and Shaoji gave further characterization of consistent marked graphs in \cite{ROB03}.
+\section{Canonically Consistent Signed Graphs}
+Given a signed graph $\sum=(G,\sigma)$ we can associate a natural 
+marking $$\mu~:~ V(G)\rightarrow\{-1,1\}$$ as follows:
+For any vertex $v\in V(G)$
+$$\mu (v)=\begin{cases}
++1, & \text{ if $v$ is isolated;} \\
+\prod\limits_{u\in N(v)}\sigma(uv), & \text{ otherwise;} 
+\end{cases}
+$$
+  where $N(v)$ is the open neighborhood of $v$ in $G$.  
+                                      This marking $\mu$ is known as the {\it canonical marking} of the signed graph $\sum$. 
+Further, the signed graph $\sum$ is said to be {\it canonically consistent} if 
+it is consistent with respect to the canonical marking.
+
+
+\begin{figure}[h!]
+\begin{pspicture}(8,4)
+\rput(2,0){\scalebox{1}{
+\pscircle[linewidth=.05, linecolor=blue](1,1){.25}
+\pscircle[linewidth=.05, linecolor=blue](3,1){.25}
+\pscircle[linewidth=.05, linecolor=blue](5,1){.25}
+\pscircle[linewidth=.05, linecolor=blue](7,1){.25}
+\pscircle[linewidth=.05, linecolor=blue](3,3){.25}
+
+
+\psline[linewidth=.05](1.3,1)(2.7,1)
+\psline[linewidth=.05](3.3,1)(4.7,1)
+\psline[linewidth=.05](5.3,1)(6.7,1)
+\psline[linewidth=.05](3,1.3)(3,2.7)
+\psline[linewidth=.05](3.2,2.8)(6.8,1.2)
+\rput(.95,1){ $1$}
+\rput(3,1){ $2$}
+\rput(5,1){ $3$}
+\rput(7,1){ $4$}
+\rput(3,3){ $5$}
+
+\rput(2,.7){ $+1$}
+\rput(4,.7){ $-1$}
+\rput(6,.7){ $-1$}
+\rput(3.3,2){ $+1$}
+\rput(4.9,2.3){ $+1$}
+
+\rput(.3,1){+1}
+\rput(3,.5){-1}
+\rput(5,.5){+1}
+\rput(7.5,1){-1}
+\rput(3,3.5){+1}
+}}
+\end{pspicture}
+\caption{\label{fig2.6} }
+\end{figure}
+The signed graph in the Figure \ref{fig2.6} represents a 
+canonically consistent signed graph. But the signed graph in the Figure \ref{fig2.7} is not
+canonically consistent. In this chapter, we tried to characterize certain classes of signed graphs that are canonically 
+consistent.
+% \red
+\begin{figure}[h!]
+\begin{pspicture}(8,4)
+\rput(2,0){\scalebox{1}{
+\pscircle[linewidth=.05, linecolor=blue](1,1){.25}
+\pscircle[linewidth=.05, linecolor=blue](3,1){.25}
+\pscircle[linewidth=.05, linecolor=blue](5,1){.25}
+\pscircle[linewidth=.05, linecolor=blue](7,1){.25}
+\pscircle[linewidth=.05, linecolor=blue](3,3){.25}
+
+
+\psline[linewidth=.05](1.3,1)(2.7,1)
+\psline[linewidth=.05](3.3,1)(4.7,1)
+\psline[linewidth=.05](5.3,1)(6.7,1)
+\psline[linewidth=.05](3,1.3)(3,2.7)
+\psline[linewidth=.05](3.2,2.8)(6.8,1.2)
+\rput(.95,1){ $1$}
+\rput(3,1){ $2$}
+\rput(5,1){ $3$}
+\rput(7,1){ $4$}
+\rput(3,3){ $5$}
+
+\rput(2,.7){ $+1$}
+\rput(4,.7){ $-1$}
+\rput(6,.7){ $-1$}
+\rput(3.3,2){ $+1$}
+\rput(4.9,2.3){ $+1$}
+
+\rput(.3,1){+1}
+\rput(3,.5){-1}
+\rput(5,.5){+1}
+\rput(7.5,1){-1}
+\rput(3,3.5){+1}
+}}
+\end{pspicture}
+\caption{\label{fig2.7} }
+\end{figure}
+\begin{proposition}\label{prop1}
+ Every signed cycle is canonically consistent.
+\end{proposition}
+\begin{proof}
+Let $\Sigma=(C,\sigma)$ be any signed graph, where $C$ is a cycle. We need to prove that $\Sigma$ is canonically consistent. Let 
+$\Sigma_\mu=(\Sigma, \mu)$ be the canonical marked signed graph of $\Sigma$.
+If $R(\sigma)=\{+\}$ or $R(\sigma)=\{-\}$, then every vertex of $\Sigma$ will get mark $+$ with respect to canonical marking and 
+so it must be canonically consistent.
+
+
+So, let $\Sigma$ has both positive and negative edges.
+We apply induction on the number of negative edges to prove this result.
+Let $\Sigma$ has $n$ negative edges.
+
+Base Step: Let $n=1$ and $e=uv$ be the negative edge in $G$. Then according to canonical marking every vertex will get mark $+$ 
+except the vertices $u,v$ in $\Sigma$. Hence the number of vertices with negative marking in $\Sigma_\mu$ is even and so it 
+is consistent. Hence $\Sigma$ is canonically consistent.
+
+Induction Step: As an induction hypothesis, assume that the result holds for fewer than $n$ negative edges in 
+$\Sigma$ and $e=uv$ be any edge in $\Sigma$  with negative sign. Let $\Sigma^\prime$ be the signed graph obtained from $\Sigma$ 
+by 
+switching the sign of $e$ to $+$. Thus $\Sigma^\prime$ has $n-1$ negative edges and so by induction hypothesis it is canonically 
+consistent. But mark of the vertices in $\Sigma_\mu$ and $\Sigma^\prime_\mu$ differs only at the vertices $u$ and $v$. So, the 
+number of negative vertices in $\Sigma_\mu$ is even as it is so in $\Sigma^\prime_\mu$. Hence $\Sigma_\mu$  is consistent and 
+which in turn implies that $\Sigma$ is canonically consistent.
+
+
+% let a cycle has only one negative edge then,by canonically matking there is exactly two negative vertices and hence the cycle 
+% is 
+% canonically consistent.
+% 
+% So, let a cycle has exactly two negative edges then, by canonically matking the vertex corresponding to two negative incident 
+% edge is going to be positive and remaining two vertex will be negative and hence the cycle is canonically consistent.
+% let us suppose that the result holds for (n-1) negative edges.we prove the result fon n negative edges.
+% let us ulter a signed of positive edge in a cycle different from (n-1) negative edges.
+% If it is not incident with none of (n-1) negative edges then the result holds.
+% if it is incident with exactly one of (n-1) negative edge then,by canonically matking the signed of vertex coresponding to two 
+% negative incident edge is going to be positive and one vertex will be negative .Hence there is same no of vertices remains 
+% ,therefore the cycle is canonically consistent by assumption.
+% if it is incident with two negative edges then we get exactly two positive vertex and hence the cycle is canonically consistent.
+\end{proof}
+% % 
+% % \begin{proposition}\label{prop2}
+% %  A unicyclic signed graph is canonically consistent if and only if the number of negative 
+% % non-cyclic edges incident with the vertices of the cycle is even.
+% % \end{proposition}
+% % \begin{proof}
+% %  Let $\sum=(G,\sigma)$  be a unicyclic signed graph and $C$ be the cycle in  $\sum$.
+% %  First assume that  $\sum$ is canonically consistent. We need to prove that the number of negative 
+% % non-cyclic edges incident with the vertices of the cycle is even.
+% % Let $v_{i_1},v_{i_2},\cdots v_{i_p}$ be the vertices in $C$ on which negative non-cyclic edges are incident.
+% % Let $$X_k=\{e : \sigma(e) = -1  \text{ and } e \text{ is non-cyclic edge incident with } v_{i_k}\}$$ for $k=1,2,\cdots p.$
+% % Since $G$ is unicyclic, so $X_k$'s are pairwise disjoint and hence the number of negative non-cyclic edges incident with the 
+% % vertices of $C$ is $\sum\limits_{k=1}^p|X_k|$. If possible,  let $\sum\limits_{k=1}^p|X_k|$ be odd. Then 
+% % $\sum\limits_{k=1}^p|X_k|$ must have odd number of odd summands and this in turn implies that the number of negative vertices in 
+% % $C$ is odd, because in absence of all the non-cyclic edges incident with the vertices of $C$, the cycle is $C$ is consistent. 
+% % Hence, the graph $\sum=(G,\sigma)$ is inconsistent, a contradiction. Therefore,  $\sum\limits_{k=1}^p|X_k|$ must be even.
+% % 
+% % Conversely, let the number of negative 
+% % non-cyclic edges incident with the vertices of the cycle $C$ is even i.e., $\sum\limits_{k=1}^p|X_k|$ is even. Then, the number 
+% % of odd summands in $\sum\limits_{k=1}^p|X_k|$ must be even. Since, negative non-cyclic edges incident with a vertex $v$ of $C$ 
+% % will alter the sign of $v$ provided it is odd in number and every cycle is consistent, so the number of vertices with negative 
+% % marking in $C$ must be even in $G$. Hence, $C$ is consistent and so $G$ is consistent.
+% % 
+% % % 
+% % % We apply induction on the number of vertices $p$ of $C$ on which negative non-cyclic edges are incident.
+% % % 
+% % % Base Step: Let $p=0$. That is, no non-cyclic negative edge is incident with the vertices of $C$. In this case, sign of $C$ will 
+% % % depend on the signe of the edges involved in $C$ and so by Proposition \ref{prop1}, $C$ is consistent and hence $G$ is 
+% % % canonically consistent.
+% % 
+% % 
+% % % 
+% % % Let, $X=\{e : \sigma(e) = −1 \text{ or } + 1 \text{ and } e \in E(G)}$
+% % %  and $Y=\{e : \sigma(e) = −1 \text{ or } + 1 \text{ and } e \in E(C)}$
+% % % Let X − Y = e : e = −1and e is incident with the vertices of C ⊆ X
+% % % we claim that X − Y is even.
+% % % If mod X −Y is odd then,V = v : v = −1andv ∈ V (C) is odd and which makes the cycle
+% % % inconsisitent,which is a contradiction thta every cycle is canonically consistent.Hence,
+% % % mod X − Y is even.
+% % % Conversely, let mod X − Y is even then V = v : v = −1andv ∈ V (C) is even and hence,
+% % % is canonically consistent.
+% % 
+% % 
+% % % \red
+% % %  Let $\sum -\sigma=\{e:e=-1\},\sigma:E(C)\longrightarrow\{-1,+1\}$ be the negative non-cyclic edges incident with the vertices 
+% % % of 
+% % % $C$.
+% % % we claim that $\sigma:E(C)\longrightarrow\{-1,+1\}$ is even.
+% % % If $\sum -\sigma$ is odd,then  $\sigma:V(C)\longrightarrow\{-1,+1\}$ is odd,which is a contradiction that every cycle is 
+% % % canonically consistent.Hence  $\sum -\sigma$ is even.
+% % % conversely,
+% % % Let $\sum -\sigma$ is even.
+% % % Then $\sigma:V(C)\longrightarrow\{-1,+1\}$ is even and hence  $\sum$ is canonically consistent.
+% % \end{proof}
+% % \begin{theorem}
+% %  If all the cycles in a signed graph are disjoint, then the 
+% % signed graph is canonically consistent if and only if the number of non-cyclic negative edges incident with the vertices of each 
+% % cycles is even.
+% % \end{theorem}
+% % \begin{proof}
+% % The proof of this theorem follows from the Proposition \ref{prop2} by applying induction on the number of cycles in $G$.
+
+
+% We prove this result by applying induction on the number of cycles $c$ in $G$.
+% 
+% Base step: Let $c=1$. In this case $G$ is unicyclic and so the result is true by the Proposition \ref{prop2}.
+% 
+% Induction Step. As an induction hypothesis let us assume that the result is true for any  signed graph with fewer than $c$ 
+% cycles.
+% Let $e=uv$ by a non-cyclic edge appears on a path connecting two cycles $C_1,C_2$ in $G$. Then removal of $e$ will breack $G$ 
+% into two components, say, $G_1,G_2$.
+% We consider the following cases:
+% 
+% Case 1: $\sigma(e)=+1$. In this case, the number of negative non-cyclic edges incident with each cycle in $G_1$ or $G_2$ will 
+% remain same as that in $G$. By induction hypothesis, $G_i,~~i=1,2$ is consistent if and only if the number of negative 
+% non-cyclic 
+% edges incident with each cycle is even. Also, $G$ is consistent if and only if $G_1$ and $G_2$ are consistent. Hence, the 
+% result 
+% follows. 
+
+ 
+% \end{proof}
+

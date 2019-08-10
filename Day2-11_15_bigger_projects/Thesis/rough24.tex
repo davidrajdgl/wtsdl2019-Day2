@@ -1,0 +1,729 @@
+
+\section{Partitioned Matrix}
+\begin{definition}
+Let $A$ be an  matrix partitioned as 
+$$ A = 
+ \begin{bmatrix}
+ A_{11} & A_{12}\\
+ A_{21} & A_{22}
+ \end{bmatrix},$$
+where $A_{11}$ and $A_{22} $ are square matrix. But $B$ and $C$ are not square matrices unless $m =n$.
+\end{definition}
+
+
+\section{Schur Compliment}
+Let $A$ be an $n\times n$ matrix partitioned as  
+\[
+ \begin{bmatrix}
+ A_{11} & A_{12}\\
+ A_{21} & A_{22}
+ \end{bmatrix}
+\]
+
+where $A_{11}$ and $A_{22} $ are square matrix. 
+
+If $A_{11}$ is non singular (det $A_{11}\neq 0 $ ), then Schur compliment of $A$ with respect to $A_{11}$
+is defined as $A / A_{11} =  A_{22}-A_{21}A^{-1}_{11}A_{12}$.
+
+
+If $A_{22}$ is non singular then schur compliment of $A$ with respect to
+$A_{22}$ is defined as $ A / A_{22} =  A_{11}-A_{12}A^{-1}_{22}A_{21}$.\\
+
+
+\section{Block diagonalisation}
+The following block diagonalisation forms,clearly display the Schur compliment  role.
+If $A_{11}$ is non singular then
+
+\begin{eqnarray}
+\begin{bmatrix}I&0\\-A_{21}A_{11}^{-1}&I\end{bmatrix}
+\begin{bmatrix}A_{11}&A_{12}\\ A_{21}&A_{22}\end{bmatrix} 
+\begin{bmatrix}I&-A_{11}^{-1}A_{12}\\0&I\end{bmatrix}
+=
+\begin{bmatrix}A_{11}&0\\0&A/A_{11}\end{bmatrix}
+\end{eqnarray}
+
+\begin{eqnarray*}
+A = 
+\begin{bmatrix}A_{11}&A_{12}\\A_{21}&A_{22}\end{bmatrix}
+=  
+\begin{bmatrix}I&0\\A_{21}A^{-1}_{11}&I\end{bmatrix} \begin{bmatrix}A_{11}&0\\0&A/A_{11}\end{bmatrix} 
+\begin{bmatrix}I&A^{-1}_{11}A_{12}\\0&I \end{bmatrix}
+\end{eqnarray*}
+
+
+
+If $A_{11}$ is non singular then
+
+
+\begin{eqnarray}
+\begin{bmatrix}I&-A_{12}A_{22}^{-1}\\0&I\end{bmatrix}
+\begin{bmatrix}A_{11}&A_{12}\\A_{21}&A_{22}\end{bmatrix} 
+\begin{bmatrix}I&0\\-A_{22}^{-1}A_{21}&I\end{bmatrix}
+= 
+\begin{bmatrix}A/A_{22}&0\\0&A_{22}\end{bmatrix} 
+\end{eqnarray}
+
+
+
+\begin{eqnarray*}
+A= 
+\begin{bmatrix} A_{11}&A_{12}\\A_{21}&A_{22}\end{bmatrix} 
+ =
+\begin{bmatrix}I&A_{12}A^{-1}_{22}\\0&I\end{bmatrix} 
+\begin{bmatrix}A/A_{22}&0\\0&A_{22}\end{bmatrix} 
+\begin{bmatrix}I&0\\A^{-1}_{22}A_{21}&I\end{bmatrix}
+\end{eqnarray*}
+
+
+\section{Determinant Formula}
+We have 
+\begin{eqnarray*} 
+A & = & \begin{bmatrix} A_{11}&A_{12}\\ A_{21}&A_{22} \end{bmatrix}\\
+  & = & \begin{bmatrix} I&A_{12}A^{-1}_{22}\\ 0&I \end{bmatrix}  \begin{bmatrix} A/A_{22}&0\\ 0&A_{22} \end{bmatrix}
+        \begin{bmatrix} I&0\\ A^{-1}_{22}A_{21}&I \end{bmatrix}
+\end{eqnarray*}
+
+Taking determinant on both sides of above given equation of $A$ we get:
+
+\begin{eqnarray*}
+det(A) & = & \begin {vmatrix} A_{11}&A_{12}\\ A_{21}&A_{22} \end{vmatrix}\\
+       & =& \begin{vmatrix} I&A_{12}A^{-1}_{22}\\ 0&I \end{vmatrix} \begin{vmatrix} A/A_{22}&0\\ 0&A_{22} \end{vmatrix}
+             \begin{vmatrix} I&0\\ A^{-1}_{22}A_{21}&I \end{vmatrix}\\
+       & = & \begin{vmatrix}A/A_{22}&0\\ 0&A_{22}\end{vmatrix}\\
+       & = & det(A/A_{22})det(A_{22})\\ 
+\end{eqnarray*}
+
+Similarly taking determinant on both sides of below given equation of $A$ we get:
+
+\begin{eqnarray*}
+A & = &\begin{bmatrix} A_{11} & A_{12}\\ A_{21} & A_{22} \end{bmatrix} \\
+  & = & \begin{bmatrix} I & 0\\ A_{21}A^{-1}_{11} & I \end{bmatrix} \begin{bmatrix} A_{11} & 0\\ 0 & A/A_{11} \end{bmatrix}
+        \begin{bmatrix} I&A^{-1}_{11}A_{12}\\ 0&I \end{bmatrix}
+\end{eqnarray*}
+
+             
+
+
+\begin{eqnarray*}
+det(A) & = & \begin {vmatrix} A_{11}&A_{12}\\ A_{21}&A_{22}\end{vmatrix}\\
+       & = & \begin{vmatrix} I&0\\ A_{21}A^{-1}_{11}&I \end{vmatrix} \begin{vmatrix} A_{11}&0\\ 0&A/A_{11}\end{vmatrix}
+              \begin{vmatrix}I&A^{-1}_{11}A_{12}\\0&I\end{vmatrix}\\
+       & = & \begin{vmatrix}A_{11}&0\\ 0&A/A_{11}\end{vmatrix}\\
+       & = & det(A_{11})det(A/A_{11})\\
+\end{eqnarray*}
+
+
+\section{Positive Definite Matrix}
+\begin{definition}
+A nxn  matrix $A$ is said to be positive definite if its symmetric and if for any non zero vector $x$, $ x^{t}Ax > 0 $.
+\end{definition}
+
+{\bf Example 1.}Identity Matrix
+
+\[
+\begin{bmatrix}
+1&0&0\\
+0&1&0\\
+0&0&1
+\end{bmatrix}
+\]
+
+{\bf Example }:
+ {\bf 2.}Diagonal Matrix with only positive entries along the diagonal.
+\[
+\begin{bmatrix}
+7&0&0\\
+0&4&0\\
+0&0&6
+\end{bmatrix}
+\]
+
+{\bf Properties:}
+Let $A$ be a symmetric $nxn$ matrix .Then any of the following conditions is equivalent to $A$ being a positive definite matrix:
+\begin{itemize}
+\item Eigen Values of $A$ are Positive.
+\item All principal minors of $A$ are positive.
+\item All leading principal minors are positive.
+\item $A = B B^{'}$ for some matrix $B$ of full column rank.
+\item $A = T T^{'}$ for some lower triangular matrix $T$ with positive diagonal entries.
+\end{itemize}      
+     
+
+
+\section{Positive Semi - Definite Matrix}
+
+\begin{definition}
+A $n\times n$  matrix $A$ is said to be positive semi definite if its symmetric and if for any  vector $x$, $ x^{t}Ax \geq 0$.
+\end{definition}
+
+{\bf Properties:}
+Equivalent conditions for a matrix to be positive semi definite can be given .However note that the leading principal minor 
+of $A$ may be non negative and yet $A$ maynot be positive semi definite 
+
+{\bf Example}
+
+$A=\begin{bmatrix}0&0\\0&-1\end{bmatrix}$
+ 
+Also in $A = T T^{'}$ for some lower triangular matrix $T$, diagonal entries of $T$ need only be non negative.
+
+If $A$ is positive semi definite then $\exists$ a unique positive semidefinite matrix $B$ st $ B ^{2} =A $.This matrix $B$ is
+called Square root of $A$ and is denoted by $A^{1/2}$.
+
+
+\section{Schur compliment condition for Positive Definitiness}
+Let $X$ be a symmetric matrix given by $$ X= \begin{bmatrix}A_{11}&A_{12}\\A^{T}_{12}&A_{21}\end{bmatrix}$$
+
+$A_{21}$ is invertible and Schur compliment of $A_{11}$ in $X$ is $S$.
+
+(i.e) $S = A_{21}-A_{12}^{T}A_{11}^{-1}A_{12}$.
+
+Then:
+\begin{itemize}
+\item $X$ is positive definite ,iff $A_{11}$  and $S$ are both positive definite 
+\item $X$ is positive definite ,iff $A_{21} $   and $ A_{11}-A^{T}_{12}A^{-1}_{22}A_{12}$are both positive definite .
+\item  $A_{11}$ is positive definite,then $X$ is positive semidefinite iff $S$ is positive Semidefinite.
+\item $A_{22}$ is positive definite,then $X$ is positive semidefinite ,iff $A_{11}-A_{12}A^{-1}_{22}A^{T}_{12}$ is positive
+semi definite.
+\end{itemize}
+
+
+\section{Lemma1}
+A block of a diagonal matrix $C$ is Positive Definite iff its blocks are Positive Definite.
+
+$$C= 
+\begin{bmatrix}
+  A_{n_1\times n_1} & 0\\
+ 0&B_{n_{2}\times n_{2}}
+\end{bmatrix}$$
+
+{\bf Proof : }
+Let us assume $C\ > $0  (i.e - Positive Definite). 
+ 
+Then so $ x^{T}.C.x\ >  0  \forall x \epsilon M_{n\times 1}$
+
+{\bf a.} Let $x_{1}  \epsilon  M_{n_{1}\times 1}$  be arbitary , where $n_{1} = $number of rows in $A$.
+\\Let 0 $\epsilon   M_{n_{2}\times 1}$ be arbitary , where $n_{2}  = $ number of rows in $B$.\\
+Then 
+$x = \begin{bmatrix} x_{1}\\ 0 \end{bmatrix} \epsilon M_{n\times 1}$ and so $x^{T}Cx > 0.$
+\begin{eqnarray*}
+\begin{bmatrix}x^{T}_{1} & 0^{T}\end{bmatrix}_{1\times n}
+\begin{bmatrix} A_{n_{1}\times n_{1}} & 0 \\ 0 & B_{n_{2}\times n_{2}}\end{bmatrix}_{n\times n}
+\begin{bmatrix}x_{1}\\0\end{bmatrix}_{n\times1}  \ >  0
+& = & \begin{bmatrix}x^{T}_{1} A & 0^{T}\end{bmatrix}_{1\times n}\begin{bmatrix}x_{1}\\0\end{bmatrix}_{n\times1}  >  0 \\
+& = & \begin{bmatrix}x^{T}_{1} A x_{1} \end{bmatrix}_{1\times 1} > 0 
+\end{eqnarray*}  $ \forall$  $x_{1}$ $\epsilon$   $M_{n_{1}\times 1}$\\
+Thus $  A > $ 0\\
+
+       
+{\bf b.} Let $0 \epsilon  M_{n_{1}\times 1}$  be arbitary , where $n_{1}=$ number of rows in $A$.
+\\Let  $x_{1} \epsilon   M_{n_{2}\times 1 }$ be arbitary , where $n_{2}=$ number of rows in $B$.
+Then  
+$x= \begin{bmatrix} 0 \\ x_{1} \end{bmatrix}\epsilon M_{n\times 1}$ and so  $x^{T}Cx > 0$
+\begin{eqnarray*}
+\begin{bmatrix}0^{T} & x^{T}_{1}\end{bmatrix}_{1\times n}
+\begin{bmatrix}A_{n_{1}\times n_{1}} & 0\\ 0 & B_{n_{2}\times n_{2}}\end{bmatrix}_{n\times n}
+\begin{bmatrix}0\\x_{1}\end{bmatrix}_{n\times1} \ >  0 \\
+& = & 
+\begin{bmatrix}0^{T}x_{1}^{T} B\end{bmatrix}_{1\times n}
+\begin{bmatrix}0\\x_{1}\end{bmatrix}_{n\times1}> 0\\
+& = & 
+\begin{bmatrix}x^{T}_{1} B x_{1} \end{bmatrix}_{1\times 1} 
+> 0   
+\forall x_{1} \epsilon M_{n_{1}\times 1}\\
+\end{eqnarray*}
+Thus $B > $0
+
+\section{Lemma 2}
+If $B$ is non singular ,then $A > $ 0 ,  iff $ B^{T}.A.B > $ 0 
+
+{\bf Proof} :
+
+Let us assume $ A > $ 0 .
+Then $ x^{T}.A.x > 0 \forall x $ ( where $x$ is arbitary).
+\\$x^{T}B^{T}$.A.Bx
+$\Rightarrow (Bx)^{T}$.A.Bx.
+ Let $ y  =  Bx $
+$\Rightarrow   y^{T}.A.y  > $ 0
+ \\Hence $ x^{T}B^{T}.A.Bx  > $ 0   $\forall $ x
+$\Rightarrow  B^{T}.A.B   > $ 0 
+ \\Next let us assume $ B^{T}.A.B  > $ 0
+$\Rightarrow  x^{T}B^{T}.A.Bx  > $ 0   $\forall $ x 
+Let $x$ be arbitary.
+Since $B$ is non singular ,so $\exists$  a unique solution for  $B y =$ b  $\forall $ b.
+That is , $B y= x$ has a unique solution and let that solution be y.
+\\Now $x^{T}.A.x = (By)^{T}.A.By = y^{T}(B^{T}.A.B)y >$ 0 by (lemma 2).
+$x^{T}Ax >  0,~~~~~ \forall  x $.
+$\Rightarrow A \ > $ 0 
+
+\section*{Theorem 1}
+
+Let $X =
+\begin{bmatrix}
+A_{11}&A{12}\\
+A_{21}&A_{22}
+\end{bmatrix}
+,X / A_{11} = A_{22}-A_{21}A_{11}^{-1}A_{12} = S_{11}$ (say).
+Then $X \ > $0 ,iff $A_{11}\ > $0  , $ S_{11} \ > $0.
+
+{\bf Proof :}
+ 
+We know that  
+\begin{eqnarray}\label{eqn1}
+\begin{bmatrix}I & 0 \\ -A_{21}A_{11}^{-1} & I \end{bmatrix}
+\begin{bmatrix}A_{11}&A_{12}\\ A_{21}&A_{22}\end{bmatrix}
+\begin{bmatrix}I&A_{11}^{-1}-A_{12}\\ O&I\end{bmatrix}
+= 
+\begin{bmatrix} A_{11}&0\\0&S_{11}\end{bmatrix}                   
+\end{eqnarray}                                                   
+ 
+Now  $X \ > $0 .
+\\$\Longleftrightarrow$  L.H.S of (\ref{eqn1}) is positive definite [by Lemma (2)]
+\\$\Longleftrightarrow $ R.H.S of (\ref{eqn1}) is positive definite [by Lemma (1)]
+\\$\Longleftrightarrow A_{11} > $ 0  and  $ S_{11} > $ 0 
+
+
+\section*{Theorem 2}
+Let $X =
+\begin{bmatrix}
+A_{11}&A{12}\\
+A_{21}&A_{22}
+\end{bmatrix}$ 
+,then  $ x > $ 0 ,iff $A_{22} > $ 0 , $ A_{11}-A_{12}A_{22}^{-1}A_{21} > $ 0.
+
+
+{\bf Proof:} \\
+Let $ A_{11}-A_{12}A_{22}^{-1}A_{21} = S_{22}$ (say).
+We know that ,
+\begin{eqnarray}\label{eqn2}
+\begin{bmatrix}I & -A_{22}^{-1}A_{12} \\ 0 & I\end{bmatrix}
+\begin{bmatrix}A_{11}&A_{12}\\ A_{21}&A_{22}\end{bmatrix}
+\begin{bmatrix}I&0\\ -A_{22}^{-1}A_{21}&I\end{bmatrix}
+=
+\begin{bmatrix}S_{22}&0\\0&A_{22}\end{bmatrix} 
+\end{eqnarray}                                                        
+\\ Now  X $\ > $0 .
+\\$\Longleftrightarrow $ L.H.S of (\ref{eqn2}) is positive definite [by Lemma (2)]
+\\$\Longleftrightarrow $ R.H.S of (\ref{eqn2}) is positive definite [by Lemma (1)]
+\\$\Longleftrightarrow A_{22} > $ 0  and  $ S_{22} > $ 0
+\\Hence proof.
+
+
+\section*{Theorem 3}
+If $A_{11}$ is positive definite,then X is positive semidefinite iff  $S_{11}\geq$ 0
+
+{\bf Proof :}
+\section*{Theorem 4}
+
+
+If $A_{22}$ is positive definite,then X is positive semidefinite iff $A_{11}-A_{12}A^{-1}_{22}A_{21}\geq$ 0
+
+{\bf Proof :}
+
+
+\section{Non Negative Matrices}
+
+{\bf 1.}Positive Matrices: An $A_{nxn}=\begin{bmatrix}a_{ij}\end{bmatrix}$ is called non-negative (positive ) 
+if all $a_{ij}\geq $0  ($a_{ij} > $  0).We use the notation ( $A > $ 0 ) to denote non negative( positive ) matrix.
+
+{\bf Example.} 
+
+$\begin{bmatrix}2&3\\4&0\end{bmatrix}$ 
+
+, A $\geq $0 iff $a_{ij} \geq $0.(i.e) entries 2$\geq $0 , 3$\geq $0, 4$\geq $0 , 0$\geq $0.
+
+{\bf 2.}Directed Graphs/Digraphs : Let $A _{nxn}\geq $ 0 . The directed graph $\Gamma(A)=$ (V,E) associated with A is the 
+graph with $V = \{ 1,2,3,\ldots ,n \}$ and $E=\{(u,v) : a_{uv}\} > 0$
+
+% {\bf Example.} \\
+% $
+% \begin{displaymath}
+% \xymatrix{A \ar[r] & B \ar[d] \\ D \ar[u]_\ar[r] & C }
+% \end{displaymath}
+% $
+
+{\bf 3.} Strongly Connected $\&$ Weakly connected : A directed graph is called strongly connected if there is a directed 
+path between every pair of (distinct)vertices.
+
+A directed graph is weakly connected if its corresponding undirected graph is connected but not strongly connected.
+
+{\bf 4.} Irreducible $\&$ Reducible : A non - negative matrix $A_{nxn}$ is said to be irreducible if the associated graph 
+$\Gamma(A)$ is strongly connected,otherwise it is called reducible. ( i.e - This term comes from the fact that digraph is 
+irreducible iff its adjacency matrix is irreducible.
+
+{\bf Example:}
+\\Below we have a matrix A and its associated directed graph .
+$$A= \begin{bmatrix}0&1&0&0\\ 0&0&1&0\\  0&0&0&1\\ 1&0&0&0\end{bmatrix} $$
+[DIAGRAM]
+
+We observe here that $\Gamma(A)$ is strongly connected ( cycle on four vertices).Therefore A is irreducible.
+
+{\bf Example:}
+
+Below we have a matrix $A^{2}$ and its associated directed graph .
+
+$ A^{2} =
+\begin{bmatrix}0&0&1&0\\ 0&0&0&1\\ 1&0&0&0\\ 0&1&0&0 \end{bmatrix} $
+[DIAGRAM]
+\\We observe here that $\Gamma(A^{2})$ is not strongly connected.Thus $A^{2}$ is irreducible.
+
+\section*{Theorem 5}
+ Let A $\geq$ 0 be reducible .Show that $\exists$ a permutation matrix P
+ \\such that $ P^{t}AP =\begin{bmatrix}B&C\\0&D\end{bmatrix}$  , where B and D are square matrices.
+
+{\bf Permatation Matrix }: is a square binary Matrix that has exactly one entry 1 in each row and column and 0 elsewhere .
+It is used to produce permutation in rows and columns of other matrix.
+
+{\bf Proof :}
+
+Suppose that U is not reachable ( via a directed path)from V in $\Gamma(A)$.
+
+Let 
+$\begin{bmatrix}U\end{bmatrix}=\{$ W:U is reachable from W.$\}$
+
+Let 
+$\begin{bmatrix}U^{c}\end{bmatrix}=\{$ W:U is not reachable from W.$\}$
+
+We notice here that A($\begin{bmatrix}U\end{bmatrix}^{c}:\begin{bmatrix}U\end{bmatrix})$is a zero Matrix,
+but A($\begin{bmatrix}U\end{bmatrix} :\begin{bmatrix}U^{c}\end{bmatrix}$)  is not a zero Matrix.
+
+Now if $\begin{bmatrix}U\end{bmatrix}  = \{ i_{1} , i_{2} \ldots,i_{k} \}$
+    and $\begin{bmatrix}U^{c}\end{bmatrix} = \{ i_{k+1} , i_{k+2} \ldots,i_{n} \}$,
+    then define $ P(i_{j},j) = $ 1.
+    Then
+    \begin{eqnarray*}
+     (P^{t}AP)_{k+l,r} = P^{t}(k+l,:) AP( : , r )\\
+    &=&  A(i_{k+l},:) P( : , r )\\
+    &=&  A(i_{k+l},i_{r})\\
+    &=& 0    \text{ if } l \geq 1,~~ r\geq k
+    \end{eqnarray*} 
+\begin{proposition}
+ Let $A_{nxn} \geq 0$ and $k \in N$ .
+Then the $(i,j)$-entry $(A^{k})_{ij}$ of $A^{k}$ is positive if and only if there is a directed walk of length $k$ from $i$ to $j$ in $\Gamma(A)$.
+\end{proposition}
+\begin{proof}
+  Note that 
+$(A^{k})_{ij} = {\Sigma} _{i_{1}} , _{i_{2}} ,\ldots, _{i_{k-1}} a_{ii_{1}}  a_{{i_{1}i_{2}}}\ldots a_{{i_{k-1}{j}}}.$
+So $(A^{k})_{ij}\> $ 0 iff  $a_{ii_{1}} a_{{i_{1}i_{2}}}\ldots a_{{i_{k-1}{j}}}\>$ 0 for some $ i_{1},i_{2},i_{3},\ldots i_{k-1}$.
+(i.e)- $ [i_{1},i_{2},i_{3},\ldots i_{k-1}] $  is a directed walk of length k from i to j.
+ 
+\end{proof}
+ 
+     
+\begin{proposition}
+Let $A_{n\times n}\geq  0$.Then $A$ is irreducible if and only if $(I+A)^{n-1} >  0$.
+ \end{proposition}
+\begin{proof}
+ 
+\end{proof}
+Let A be irreducible.Then $\Gamma(A) $ is strongly connected and $\Gamma( I + A )$ is obtained from $\Gamma(A) $ by adding a 
+loop at each vertex.\\
+
+[DIAGRAM]\\
+
+Let $A =\begin{bmatrix}0&1&0\\0&0&1\\1&0&0\end{bmatrix}$ 
+and $I =\begin{bmatrix}1&0&0\\0&1&0\\0&0&1\end{bmatrix}$
+Then $ A + I =\begin{bmatrix}1&1&0\\0&1&1\\1&0&1\end{bmatrix}$.
+
+Let P(i,j)$ = [ i , i_{1} , i_{2} ,\ldots, i_{k-1} , j ] $ be a directed path of length k in $\Gamma (A) $.
+
+{\bf [ Note]}:
+
+{\bf (1) } K is arbitary - (i.e) no of vertices.
+{\bf (2) } Given a graph G:
+
+{\bf i.} A seq of vertices of walk of the form $[U_{0} , U_{1} , U_{2} , \ldots ,U_{K}]$ is said to be $U_{0}$ to $U_{k}$ walk 
+, if  $U_{i}$ and $U_{i+1}$ are adjacent $\forall  =$ 0 , 1 , 2 , \ldots, k-1.
+
+{\bf ii.} A trial is a walk in which all edges are distinct.
+
+{\bf iii.} A path is a walk in which all edges and vertices are distinct.
+
+{\bf iv.} A $U_{0}$ - $U_{K}$ path is said to be a cycle if $U_{0}$ and $U_{K}$ are same.]
+ \\
+ 
+ 
+ Then  $[ i , i_{1} , i_{2} ,\ldots, i_{k-1} , j , j , \ldots, j ]$ (here j is repeating $[n-1]$ times) is a i-j 
+ directed walk of length $n-1$ in $\Gamma (I+A) $ .
+ Hence $\ (I+A)^{n-1}  > $ 0.
+ Conversely ,if $[(I+A)^{n-1}]_{ij} \geq $ 0 ,then there is a i-j directed walk of length $n-1$ in $\Gamma (I+A)$.
+ By dropping the cycles we obtain a i - j directed path in $ \Gamma (A)$.So $\Gamma (A)$ is strongly connected, (i.e) A is 
+ irreducible.
+
+
+\section{Perron - Frobenius Theory : }
+In 1907 ,O.Perron made some fundamental discoveries about positive matrices.Later Frobenius generalized the concepts to 
+nonnegative irrreducible matrices.Recall that the spectral radius $\rho(A) $ of A  , is maximum of the absolute values of the
+eigen values of $A$ .We shall use the following result in the sequel.
+
+\section{Theorem}
+
+{\bf Schauder fixed point theorem }
+
+Let $A$ be a closed convex subset of a banach space and assume there exists a continious map $T$ sending $A$ to a compact subset of 
+$A$.Then $T$ has fixed points.
+
+\section{Lemma 5}
+Let $ A_{nxn} \geq  $ 0. Then there is a positive eigen value $\lambda $ of $A$ with the corresponding eigen vector positive 
+(entrywise).
+
+{\bf Proof :} 
+
+Let $S =\{ x \in R^{n} : x \geq $ 0 ,${\parallel    x \parallel }_{1} = 1.\}$ be the set of probability vectors.
+Let $f(x) =\frac{ Ax }{\parallel Ax \parallel_{1}}$.Then $f$ is continious function from $S$ to $S$.
+
+ Notice that $S$ is convex,compact.Hence by Schauder fixed point Theorem ,there is a fixed point $y$ of $f$ such that $f(y)= y$.
+ Taking $\lambda = {\parallel Ay \parallel}_{1}$ ,we have $f(y) = \frac{ Ay }{\parallel Ay \parallel_{1}}
+\\ \Longrightarrow  \frac{ Ay }{\parallel Ay \parallel_{1}}=  y  
+\\  \Longrightarrow  Ay = y  \parallel Ay \parallel _{1} 
+\\ \Longrightarrow  Ay = y \lambda $.
+ Hence $(I + A)^{n-1} y  = (1 + \lambda  )^{n-1} y$.
+ Since $A$ is irreducible ,(by proposition 3) $(I + A)^{n-1})$ is positive ,so y must be positive .
+ (i.e :)
+since $\lambda = {\parallel   Ay \parallel }_{1} $ and norm is length of vector so its positive .
+Also $(I+A)^{n-1}y = (1+ \lambda )^{n-1}y$  
+
+
+\begin{eqnarray*}& \Longrightarrow &
+\begin{bmatrix}2&1&1\\1&2&2\\2&1&2\end{bmatrix}
+\begin{bmatrix}1\\0\\3\end{bmatrix} 
+\neq 3.
+\begin{bmatrix}1\\0\\3\end{bmatrix} 
+\end{eqnarray*}
+\begin{eqnarray*}& \Longrightarrow &
+\begin{bmatrix}2&0&3\\1&0&6\\2&0&6\end{bmatrix}
+\neq
+\begin{bmatrix}3\\0\\9\end{bmatrix} 
+\end{eqnarray*}
+
+Thus $y$ is a positive value.
+  
+  
+\section{Lemma 6}
+In Lemma 5 the eigen value $\lambda $ is geometrically simple.
+
+{\bf Proof :}
+
+Let $ y \ > $ 0 be an eigen vector of $A$ corresponding to $\lambda $.
+If possible let there be another Eigen Vector $Az =\lambda z ;z =z_{1}+ i z_{2}$.
+Since $A$ and $\lambda $ are real we see that $Az_{1} =\lambda z_{1}$ and $Az_{2} =\lambda z_{2}$.(seperate real and imaginary 
+part).If $z_{1}\neq$ 0 ,then we can take a suitable linear combination of $y$ and $z_{1}$ to produce a non negative eigen
+vector $x$ of $A$ ,corresponding to $\lambda $,with one zero entry.
+Since $(I+A)^{n-1}x = (1+\lambda )^{n-1}x$ , we see $x$ must be positive (by previous lemma) , a contradiction .
+Hence $z_{1} = 0 $. Similarly $z_{2} = 0 $ .
+
+\section{Lemma 7}
+In Lemma 5 ,$\lambda $ is the only eigen value of $A$ with a positive eigen vector.
+
+{\bf Proof : }
+
+Let $\mu$ be another eigen value with a positive eigen vector $z$.
+Let $\delta \ > $ 0 be an eigen value of $A^{t}$ with a positive eigen vector $x$.
+So $\delta x^{t} y =x^{t} A y =\lambda x^{t} y $ Perron - Frobenius Theory  and $\delta x^{t} z =x^{t} A z = \mu x^{t} z$
+We get $\delta = \mu=\lambda $
+
+{\bf Note}: $A^{t} x=\delta  x 
+\Longrightarrow  (A^{t} x)^{t} = (\delta x)^{t}
+\Longrightarrow  x^{t} A  = \delta x^{t}                \longrightarrow (a)$
+\\Also A $x^{t} = \lambda x^{t}                           \longrightarrow (b)$
+Using $(a)$ and $(b)$ and multiplying both sides with $y$ ,we get  $x^{t} A y  = \delta x^{t} y =\lambda x^{t}  y$.
+Similarly   $x^{t}  A z  = \delta x^{t} z  = \mu x^{t} z $ (since $\lambda $ and $\mu$ are eigen values).
+Thus we get $\delta x^{t} y = x^{t} A y = \lambda x^{t} y $ and $\delta x^{t} z  = x^{t} A z =\mu x^{t}z$.
+Thus  $\delta =\mu=\lambda $ .
+  
+Note:
+Positive Eigen value and a Positive eigen vector $y$ as described in Lemma 5 are called Perron Value and Perron Vector of $A$ ,
+respectively. Also a left Perron Vector is a Perron Vector of $A^{t}$.
+  
+  
+\section{Lemma 8}
+Let $A \geq $ 0 be irreducible.Then $\rho(A)$ is the perron value of $A$. 
+
+{\bf Proof :}
+Let  $\mid S \mid =\rho (A) , Ax = Sx ; x \neq  0 $ ($x$ and $S$ maybe negative but not at the same instance,due to condition 
+$(Ax = Sx))\lambda $ is the perron value of $A$ and $z$ is a left perron vector st $z^{t}A = \lambda  z^{t}\longrightarrow (a)$
+\\Then $\rho(A) \mid x \mid = \mid S\mid \mid x \mid=\mid Sx \mid=\mid Ax \mid \leq \mid A \mid \mid x \mid =  A \mid x \mid$
+$\Rightarrow \rho(A) \mid x \mid \leq  A \mid x \mid  \longrightarrow (b)$
+Combining (a) and (b) $\rho(A)\mid x \mid z^{t} \leq \lambda z^{t} \mid x\mid$ 
+And so $\rho(A)  \leq \lambda $, an eigen value of A.
+Thus $\rho(A)= \lambda$ , since $\rho(A)= \mid S \mid$ (a positive value).
+
+
+\section{Theorem 9}
+
+Let $ A\geq $ 0 be irreducible.Then $\rho = \rho(A)$ is simple.
+
+{\bf Proof :}
+
+Consider the characteristic polynomial ,
+
+$ P(\lambda ) =  det B = det(\lambda I - A)=\sum _{\sigma }Sgn\sigma b_{1\sigma {(1)}} b_{2\sigma {(2)}}\ldots b_{n\sigma {(n)}}$.
+
+$ P(\lambda ) =  det B = det(\lambda I - A)
+              =  det \begin{vmatrix}(\lambda -a_{11})&b_{12}&\ ldots &b_{1n}\\b_{21}&(\lambda -a_{22})&\ldots&b_{2n}\\
+                                       \vdots& \vdots&\ddots&\ \vdots\\\\b_{n1}&b_{n2}&\ldots&(\lambda -a_{nn}) 
+                      \end{vmatrix}$
+
+\begin{eqnarray*}P^{'}(\lambda )& = & \begin{vmatrix} (\lambda -a_{11})^{'}&b_{12}&\ldots&b_{1n}\\
+                                                     0&(\lambda -a_{22})& \ldots &b_{2n}\\
+                                                      \vdots& \vdots&\ddots&\ \vdots\\
+                                                         0 & b_{n2} & \ldots&(\lambda -a_{nn})
+                                     \end{vmatrix} 
+                                     +\begin{vmatrix} (\lambda -a_{11})&0&\ldots&b_{1n}\\
+                                                        b_{21}&(\lambda -a_{22})^{'}&\ldots&b_{2n}\\
+                                                       \vdots& \vdots&\ddots&\ \vdots\\
+                                                       b_{n1}&0& \ldots&(\lambda-a_{nn})
+                                      \end{vmatrix}
+                                   +\ldots +\begin{vmatrix} (\lambda -a_{11})&b_{12}&\ ldots&0\\
+                                                      b_{21} & ( \lambda -a_{22})&\ldots & 0\\
+                                                       \vdots & \vdots & \ddots &\ \vdots \\
+                                                       b_{n1}&b_{n2}& \ldots &(\lambda -a_{nn})^{'})
+                                      \end{vmatrix}
+                                       \end{eqnarray*}
+
+$P^{\prime}(\lambda )   =  (\lambda -a_{11})^{\prime} \Sigma sgn \sigma b_{2\sigma (2)} \ldots b_{n\sigma (n)} + \ldots + 
+                     (\lambda -a_{nn})^{\prime} \Sigma sgn \sigma b_{1\sigma (1)} \ldots b_{(n-1)\sigma (n-1)}.
+ P^{'}(\lambda )   =  (\lambda -a_{11})^{'} det B(1/1) +\ldots+ (\lambda -a_{nn})^{'} det B(n/n)$
+ where $B(i/i)$ is principle  sub-matrix of $B$ after deleting $i^{th}$ row and $i^{th}$ columns.
+ Hence $P^{'}(\rho )= det(\rho I - A)(1/1) +\ldots.+ det(\rho I - A)(n/n)= trace[adj(\rho I - A) adj(B) = 
+\begin{vmatrix} 
+  detB(1/1) & detB(1/2) & \ldots & detB(1/n)\\
+  detB(2/1) & detB(2/2) & \ldots &detB(2/n)\\
+  \vdots& \vdots&\ddots&\ \vdots\\
+  detB(n/1) & detB(n/2) & \ldots &detB(n/1)
+\end{vmatrix}^{T} 
+adj(B) =$
+% \begin{vmatrix}
+%  detB(1/1) & detB(2/1)} & \ldots & detB(n/1)\\
+%  detB(1/2) & detB(2/2) & \ldots & detB(n/2)\\
+%  \vdots& \vdots &\ddots &\ \vdots \\
+%  detB(1/n) & detB(2/n) & \ldots & detB(n/n)
+% \end{vmatrix} $
+% $\Rightarrow trace [adj B] = detB(1/1) + detB(2/2) + \ldots+ detB(n/n)$  
+% 
+% \\$\Rightarrow trace [adj (\rho I-A)] = det(\rho I-A)(1/1) + det(\rho I -A)(2/2) + \ldots+ det(\rho I -A)(n/n) $  
+% 
+% \\Assume that $\rho $ is not simple.
+% Then $trace [adj (\rho I-A)] = P^{'}(\rho) = 0$.
+% As we know that $\rho $ has geometric multiplicity one,it follows that the Jordan matrix for $A$ has only one Jordan Block 
+% corresponding to $\rho$ .
+% 
+% Hence ($\rho I -A)$ has rank $n-1$.
+% Let $ C & = &  adj (\rho I -A),then(\rho I -A)C = (\rho I-A)adj(\rho I-A)
+%         & = & [(\rho I-A)(\rho I-A)]^{-1}det(\rho I-A) =I det(\rho I-A) = 0 $
+% 
+% Hence,($\rho I-A)C = det(\rho I -A)I = $0.
+% It follows that columns of $C$ are either 0 or non zero multiples of perron vector $y$.
+% As the rank of ($\rho I-A)$ is $n-1$, atleast one element of $C$ is non zero.
+% Thus $C$ has column of the form $ry ,r\neq$0.
+% Consider $A^{t}$.Proceeding as before for ($\rhoI -A^{t})$,we see that $C$ has row $sz , s \neq$0,where $z$ is the
+% Perron vector for $A^{t}$.
+% It follows that $r$ and $s$ have the same sign and thus  $C \ > $0 .
+% So $ Trace(C) \neq  0$ , a contradiction.
+% 
+% {\bf Note}
+% We denote by $\sigma (A) $,the spectrum of $A$ .By $\rho $ ,we mean the spectral radius unless otherwise stated.
+%    
+%    
+% \section{Theorem 10}
+% 
+% Let $ A\geq $ 0 be irreducible . 
+% Let $\mu=e^{i\alpha} \rho$  which  $\epsilon \sigma(A) , \alpha \epsilon (0 ,2\Pi)$,with a corresponding eigen vector $x$ . 
+% Then $\mu$ is simple and $e^{i\alpha}\sigma(A) = \sigma(A)$, that is ,$\sigma(A)$ remains unchanged with a rotation by an
+% angle $\alpha$  .
+% 
+% 
+% {\bf Proof : } 
+% 
+% Notice that ,
+% 
+%  $\rho \arrowvert x \arrowvert 
+%  = \arrowvert \rhox \arrowvert 
+%  = \arrowvert \rho\arrowvert  \arrowvert x \arrowvert
+%  =\arrowvert \mu e^{i\alpha} \arrowvert \arrowvert x \arrowvert 
+%  = \arrowvert \mu \arrowvert \arrowvert x \arrowvert 
+%  = \arrowvert \mu x \arrowvert 
+%  = \arrowvert Ax \arrowvert 
+%  \leq  \arrowvert A \arrowvert \arrowvert x \arrowvert 
+%  = A \arrowvert x \arrowvert $
+%  
+%  then 
+%       $\Rightarrow A\arrowvert x \arrowvert 
+%  \geq \rho \arrowvert x \arrowvert \Rightarrow A \arrowvert x \arrowvert  
+%     -\rho \arrowvert x \arrowvert \geq $ 0.
+%  
+%  Let $z$ be a left Perron vector of $A$. Then 
+%  $z^{t}(A\arrowvert x \arrowvert 
+%  - \rho \arrowvert x \arrowvert) 
+%  = 0 $,
+%  
+%  so that $A \arrowvert x \arrowvert  
+%  = \rho \arrowvert x \arrowvert $.
+%  
+%  As  $\rho$  is simple ,we may assume $\arrowvert x \arrowvert  = y$ , a perron vector.
+%  
+%  Let $x_{j}  =  y_{j} e^{i\theta_{j}}$ and  put $D =  diagonal ( e^{i\theta_{1}}, e^{i\theta_{2}},ldots,e^{i\theta_{n}}$), 
+%  so that $x = Dy$.  
+%  
+% \begin{eqnarray*}
+% \begin{bmatrix}x_{1}\\ x_{2}\\ \ldots\\ x_{n}\end{bmatrix}_{n\times 1}
+% = 
+% \begin{bmatrix}e^{1\theta_{1}}&O&\ldots &0\\ 0&e^{2\theta_{2}}& \ldots &0\\ 
+%                   \ldots &\ldots &\Vdots &\ldots \\ 0&\ldots &\ldots & e^{n\theta_{n}\end{bmatrix}_{n\times n}
+% \begin{bmatrix}y_{1}\\ y_{2}\\\ldots \\ y_{n}}\end{bmatrix}_{n\times 1}
+% \end{eqnarray*}
+%  
+% Then , 
+%  
+%  $AD_{y} = Ax = \mu x = e^{i\alpha}\rho Dy$ ,
+%  so that, Cy $:=e^{ -i \alpha} D^{-1}  A Dy =\rho y = Ay = \arrowvert C \arrowvert y$.
+%  
+%  Note that for each i ,$\arrowvert \Sigma C_{ij} y_{j} \arrowvert =\SigmaC_{ij}  \arrowvert  y_{j}  \arrowvert$ ,
+%  so that $ C_{ij} , j = 1 , ......., n, $ have the 
+%  same angular part (lie on the same ray starting from origin).
+%  Notice that $(Cy)_{i}$ also lie on this ray.
+%  As $(Cy)_{i}\> 0$ ,the ray must be the positive x-axis.
+%  Hence C $\geq $ 0 , and so $e^{-i\alpha}D^{-1} A D =C=\arrowvert C \arrowvert= A$ and
+%  $e^{ i \alpha }\sigma(A)=\sigma(D^{-1} A D)=\sigma(A)$.
+%  Note that multiplicity of $ \mu$ in $A$ is same as that of $ \mu$ in $ D^{-1} A D$ ,which is same as the multiplicity of 
+%  $ \rho$ in $e^{-i\alpha}D^{-1} A D = A$ ,which is 1.
+%  
+%  
+% \section{Corollary 11}
+% 
+% Let $ A\geq $ 0  be irreducible and suppose that $A$ has $k > $1 eigen values of absolute value $\rho(A) $ .
+% Then these are $\rho  e^{\frac{i2 \Pi j}{k}}, j =  0 ,1 ,2,\ldots k-1 $.Further , $\sigma(A)$ remains unchanged under a 
+% rotation of $\frac{2\Pi}{k}$.
+% 
+%  
+% \section{Lemma 12}
+% 
+% Let $ A > $ 0 .Then Perron value is the only eigen value $c$ such that $\arrowvert \lambda \arrowvert = \rho(A)$.
+%    
+% {\bf Proof : }
+% 
+% Let $y$ be a Perron vecor .Suppose that $Ax = \mu x$ and $\arrowvert \mu \arrowvert =\rho(A)=\lambda$ .
+% 
+% Notice that $ \lambda \arrowvert x \arrowvert  =  \arrowvert Ax \arrowvert $
+% 
+% \begin{eqnarray*}
+%   =\begin{bmatrix}
+%       \begin{vmatrix}\Sigma a_{1j}x_{j}\end{vmatrix}
+%        \\ \ldots \\ \ldots \\ \ldots \\ 
+%       \begin{vmatrix}\Sigma a_{nj}x_{j}\end{vmatrix}
+%     \end{bmatrix}   
+%  \leq    
+%     \begin{bmatrix}\Sigma a_{1j}
+%         \begin{vmatrix}x_{j}\end{vmatrix}
+%         \\ \ldots \\ \ldots \\ \ldots\\ 
+%         \begin{vmatrix}\Sigmaa_{nj}x_{j}\end{vmatrix}
+%     \end{bmatrix} 
+% \end{eqnarray*}
+% 
+% $= A \arrowvert x \arrowvert $
+% Let $z$ be a left Perron Vector of $A$.Then $z^{t} (A\arrowvert x \arrowvert - \lambda \arrowvert x \arrowvert) = 0$ 
+% and hence $\lambda \arrowvert x \arrowvert= A \arrowvert x \arrowvert$.As $\lambda $ is simple,we may assume that 
+% $y = \arrowvert x \arrowvert $.
+% Further ,as $\arrowvert \Sigma a_{ij}x_{j} \arrowvert = \Sigma  a_{ij} \arrowvert}x_{j} \arrowvert$
+% , we conclude that for each $i$ the numbers $a_{ij}x_{j}, j = 1,2,.....,n$, 
+% have the same angular part(lie on one ray from the origin).Hence $x = ye^{i\theta}$,as $a_{ij}> 0$.
+% Now $\lambda x = \lambda y e^{i\theta} = Ay e^{i\theta}=A x = \mu x $ ,so that $ \lambda=\mu$
